@@ -82,10 +82,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\Note\Add.aspx" />
+    <Content Include="Views\Note\Show.aspx" />
     <Content Include="Web.config" />
     <None Include="Content\Site.less" />
     <Content Include="Scripts\jquery-1.3.2.js" />

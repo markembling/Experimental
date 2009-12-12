@@ -22,6 +22,11 @@ namespace MongoDbNotes.Models
             return GetCollection().FindOne(querySpec);
         }
 
+        public Document FindOneById(Oid id) {
+            var spec = new Document() {{"_id", id}};
+            return FindOne(spec);
+        }
+
         public IEnumerable<Document> FindAll() {
             return GetCollection().FindAll().Documents;
         }
