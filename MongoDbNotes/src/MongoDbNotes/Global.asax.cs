@@ -36,10 +36,16 @@ namespace MongoDbNotes {
             var host = ConfigurationManager.AppSettings["mongo-host"];
             var port = int.Parse(ConfigurationManager.AppSettings["mongo-port"]);
             var dbname = ConfigurationManager.AppSettings["mongo-database"];
+            var username = ConfigurationManager.AppSettings["mongo-username"];
+            var password = ConfigurationManager.AppSettings["mongo-password"];
 
             var mongo = new Mongo(host, port);
             mongo.Connect();
             var db = mongo.getDB(dbname);
+
+            if (! string.IsNullOrEmpty(username)) {
+                db.Authenticate(username, password);
+            }
 
             //db.Authenticate()
 
