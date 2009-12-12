@@ -9,20 +9,20 @@ using MongoDbNotes.Models;
 namespace MongoDbNotes.Controllers {
     [HandleError]
     public class NoteController : Controller {
-        private readonly NoteRepository _notes;
+        private readonly NoteRepository _repository;
 
         public NoteController(NoteRepository notes) {
-            _notes = notes;
+            _repository = notes;
         }
 
         public ActionResult Index() {
-            var notes = _notes.FindAll();
+            var notes = _repository.FindAll();
 
             return View(notes);
         }
 
         public ActionResult Show(string id) {
-            var note = _notes.FindOneById(new Oid(id));
+            var note = _repository.FindOneById(new Oid(id));
             return View(note);
         }
 
@@ -43,12 +43,21 @@ namespace MongoDbNotes.Controllers {
                 doc.Add("title", title);
                 doc.Add("body", body);
 
-                _notes.Save(doc);
+                _repository.Save(doc);
 
-                return this.RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             return View();
+        }
+
+        [AcceptVerbs(HttpVerbs.Delete)]
+        public ActionResult Delete(string id) {
+            var oid = new Oid(id);
+            _repository.DeleteById(oid);
+
+            TempData["notice"] = "Note deleted";
+            return RedirectToAction("Index");
         }
     }
 }

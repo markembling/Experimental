@@ -23,7 +23,7 @@ namespace MongoDbNotes.Models
         }
 
         public Document FindOneById(Oid id) {
-            var spec = new Document() {{"_id", id}};
+            var spec = new Document {{"_id", id}};
             return FindOne(spec);
         }
 
@@ -36,6 +36,15 @@ namespace MongoDbNotes.Models
             updateSpec["_id"] = doc["_id"];
 
             GetCollection().Update(doc, updateSpec, 1);
+        }
+
+        public void Delete(Document spec) {
+            GetCollection().Delete(spec);
+        }
+
+        public void DeleteById(Oid id) {
+            var spec = new Document {{"_id", id}};
+            Delete(spec);
         }
 
         private IMongoCollection GetCollection() {

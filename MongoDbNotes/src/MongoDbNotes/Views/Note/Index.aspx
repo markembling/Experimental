@@ -14,7 +14,7 @@
     
         <ul>
         <% foreach (var note in Model) { %>
-            <li><%= Html.ActionLink((string)note["title"], "Show", new { id = Html.OidToString((Oid)note["_id"]) }) %></li>
+            <li><%= Html.ActionLink((string)note["title"], "Show", new { id = ((Oid)note["_id"]).ToFriendlyString() }) %></li>
         <% } %>
         </ul>
         

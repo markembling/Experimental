@@ -12,5 +12,10 @@
         <%= Model["body"] %>
     </div>
     
+    <% Html.BeginForm("Delete", "Note", new { id = ((Oid)Model["_id"]).ToFriendlyString() }); %>
+        <%= Html.HttpMethodOverride(HttpVerbs.Delete) %>
+        <input type="submit" value="Delete" />
+    <% Html.EndForm(); %>
+    
     <p><%= Html.ActionLink("Back", "Index") %></p>
 </asp:Content>

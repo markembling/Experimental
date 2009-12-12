@@ -12,7 +12,7 @@ namespace MongoDbNotes {
             return string.Format("{0} - {1}", title, siteTitle);
         }
 
-        public static string OidToString(this HtmlHelper html, Oid oid) {
+        public static string ToFriendlyString(this Oid oid) {
             var bytes = oid.Value;
             return BitConverter.ToString(bytes).Replace("-", "").ToLower();
         }

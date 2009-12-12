@@ -15,6 +15,12 @@
         </div>
 
         <div id="content">
+            <% if (!string.IsNullOrEmpty((string)TempData["errors"])) { %>
+                <div id="errors"><%= TempData["errors"] %></div>
+            <% } else if (!string.IsNullOrEmpty((string)TempData["notice"])) { %>
+                <div id="notice"><%= TempData["notice"] %></div>
+            <% } %>
+        
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
         
