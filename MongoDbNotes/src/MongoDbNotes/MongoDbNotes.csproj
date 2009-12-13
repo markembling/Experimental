@@ -84,13 +84,21 @@
     </Compile>
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\TaggedNotesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\VAG-HandWritten-fontfacekit\stylesheet.css" />
+    <Content Include="Content\VAG-HandWritten-fontfacekit\VAGDesign Font License.txt" />
     <Content Include="Global.asax" />
     <Content Include="Views\Note\Add.aspx" />
     <Content Include="Views\Note\Show.aspx" />
+    <Content Include="Views\Note\Tagged.aspx" />
     <Content Include="Web.config" />
     <None Include="Content\Site.less" />
+    <None Include="Content\VAG-HandWritten-fontfacekit\VAG-HandWritten.eot" />
+    <None Include="Content\VAG-HandWritten-fontfacekit\VAG-HandWritten.otf" />
+    <None Include="Content\VAG-HandWritten-fontfacekit\VAG-HandWritten.svg" />
+    <None Include="Content\VAG-HandWritten-fontfacekit\VAG-HandWritten.woff" />
     <Content Include="Scripts\jquery-1.3.2.js" />
     <Content Include="Scripts\jquery-1.3.2.min.js" />
     <Content Include="Scripts\jquery-1.3.2-vsdoc.js" />
@@ -115,7 +123,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

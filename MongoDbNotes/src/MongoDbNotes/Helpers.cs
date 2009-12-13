@@ -9,7 +9,7 @@ namespace MongoDbNotes {
             const string siteTitle = "Notes";
             if (string.IsNullOrEmpty(title))
                 return siteTitle;
-            return string.Format("{0} - {1}", title, siteTitle);
+            return string.Format("{0} - {1}", html.Encode(title), siteTitle);
         }
 
         public static string ToFriendlyString(this Oid oid) {

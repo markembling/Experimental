@@ -6,13 +6,12 @@
     <%= Html.Title(null) %></asp:Content>
 
 <asp:Content ID="indexContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%=Html.Encode(ViewData["Message"])%></h2>
     
     <% if (Model.Count() == 0) { %>
         <p>There are no notes</p>
     <% } else { %>
     
-        <ul>
+        <ul class="notes">
         <% foreach (var note in Model) { %>
             <li><%= Html.ActionLink((string)note["title"], "Show", new { id = ((Oid)note["_id"]).ToFriendlyString() }) %></li>
         <% } %>
@@ -20,6 +19,6 @@
         
     <% } %>
     
-    <p><%= Html.ActionLink("Add Note", "Add", "Note") %></p>
+    <p class="clear-both"><%= Html.ActionLink("Add Note", "Add", "Note") %></p>
     
 </asp:Content>

@@ -10,12 +10,16 @@
     <% Html.BeginForm("Add"); %>
         <ol>
             <li>
-                <label for="title">Title</label>
-                <%= Html.TextBox("title", null, new { size = 30 }) %>
+                <label for="title">Title:</label>
+                <%= Html.TextBox("title", null, new { size = 30, maxlength = 30 }) %>
             </li>
             <li>
-                <label for="body">Note</label>
+                <label for="body">Note:</label>
                 <%=Html.TextArea("body", null, new {cols = 60, rows = 14 }) %>
+            </li>
+            <li>
+                <label for="tags">Tags (separate with spaces):</label>
+                <%= Html.TextBox("tags", null, new { size = 50 }) %>
             </li>
             <li>
                 <input type="submit" value="Add" />
