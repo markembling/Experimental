@@ -51,32 +51,4 @@ namespace MongoDbNotes.Models
             return _db.GetCollection(CollectionName);
         }
     }
-
-    public abstract class MongoModelMap {
-        private static string _collectionName;
-        public static string CollectionName {
-            get { return _collectionName; }
-            set { _collectionName = value; }
-        }
-    }
-
-    [MongoCollection("notes")]
-    public class NoteModel : MongoModelMap {
-        [MongoDocumentElement("title")]
-        public string Title { get; set; }
-        [MongoDocumentElement("body")]
-        public string Body { get; set; }
-    }
-
-    public class MongoCollectionAttribute : Attribute {
-        public MongoCollectionAttribute(string name) {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class MongoDocumentElementAttribute : Attribute {
-        public MongoDocumentElementAttribute(string name) {
-            throw new NotImplementedException();
-        }
-    }
 }
