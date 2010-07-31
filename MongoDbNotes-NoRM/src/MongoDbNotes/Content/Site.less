@@ -1,0 +1,165 @@
+﻿body {
+	background-color: #FFF;
+	font-family: Cambria, Georgia, 'Times New Roman', serif;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+}
+
+/* Classes/mixins */
+.clear-both {
+	clear: both;
+}
+/* End classes/mixins */
+
+h2 {
+	font-variant: small-caps;
+	font-size: 1.4em;
+}
+a { color: #335c6c; }
+
+#container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+#branding {
+	text-align: center;
+	border-bottom: solid 1px #91bbcb;
+	margin-bottom: 1em;
+	
+	h1 {
+		font-variant: small-caps;
+		margin: 0.4em 0;
+		padding: 0;
+		font-size: 1.8em;
+	}
+}
+
+#errors, #notice {
+	margin: 0.5em 0;
+	padding: 0.2em;
+}
+#errors {
+	background-color: #fff1ec;
+}
+#notice {
+	background-color: #f8ffec;
+}
+
+#content {
+	.notes {
+		list-style-type: none;
+		padding: 0;
+		margin: 0 0 0 -10px;
+		line-height: 1.3;
+	
+		li {
+			margin: 0 0 10px 10px;
+			padding: 1em 10px;
+			background-color: #fffcd5;
+			border-left: solid 1px #f9f8f0;
+			border-top: solid 1px #f9f8f0;
+			border-right: solid 1px #bab581;
+			border-bottom: solid 1px #bab581;
+			float: left;
+			width: 270px;
+			
+			a {
+				text-decoration: none;
+				font-family: 'VAG-HandWritten', Calibri, sans-serif;
+				font-size: 1.4em;
+			}
+		}
+	}
+	
+	.note {
+		background-color: #fffcd5;
+		border-left: solid 1px #f9f8f0;
+		border-top: solid 1px #f9f8f0;
+		border-right: solid 1px #bab581;
+		border-bottom: solid 1px #bab581;
+		
+		h2 {
+			font-family: 'VAG-HandWritten', Calibri, sans-serif;
+			font-size: 1.8em;
+			margin: 0;
+			padding: 0 10px;
+			background-color: #fffab9;
+		}
+		
+		p {
+			font-family: 'VAG-HandWritten', Calibri, sans-serif;
+			font-size: 1.4em;
+			margin: 10px;
+		}
+		
+		.tags {
+			margin: 1em 10px;
+			padding: 0;
+			list-style-type: none;
+			font-size: 0.8em;
+			font-family: Calibri, Arial, sans-serif;
+			
+			li {
+				display: inline;
+				
+				a {
+					padding: 2px;
+					color: #91bbcb;
+					background-color: #f0fdff;
+					border: solid 1px #91bbcb;
+					text-decoration: none;
+				}
+				a:hover, a:focus {
+					color: #f0fdff;
+					background-color: #91bbcb;
+					border: solid 1px #91bbcb;
+				}
+			}
+		}
+		
+		form.delete {
+			margin: -2.4em 10px 0 0;
+			padding: 0;
+			float: right;
+		}
+	}
+
+	form {
+		margin: 1em 0;
+		padding: 0;
+	
+		ol {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			
+			li {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	
+		label {
+			display: block;
+		}
+	}
+}
+
+#footer {
+	font-family: Calibri, Arial, sans-serif;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: solid 1px #91bbcb;
+	color: #646464;
+	padding: 0.5em 0;
+	
+	a { color: #535353; }
+	p {
+		margin: 0;
+		padding: 0;
+	}
+}

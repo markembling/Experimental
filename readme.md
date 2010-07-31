@@ -8,8 +8,14 @@ Note that this app makes use of CSS 3 @font-face and provides a font. Since IIS 
 
 I have written about this app, and my thoughts regarding MongoDB and its use from C# in my blog post: **[Going 'NoSQL' with MongoDB and C#][5]**
 
+### MongoDbNotes-NoRM
+
+This is the same application as above, but converted to use the [NoRM][6] driver. 
+
+
 [1]: http://www.mongodb.org/
 [2]: http://github.com/samus/mongodb-csharp
 [3]: http://dotlesscss.com/
 [4]: http://www.markembling.info/blog/view/better-css-with-dotless
 [5]: http://www.markembling.info/blog/view/mongodb-and-csharp
+[6]: http://normproject.org/

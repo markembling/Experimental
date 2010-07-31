@@ -1,0 +1,65 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:Autofac.Registrars.IConcreteRegistrar">
+      <Item value="FactoryScoped`0" priority="0" />
+      <Item value="ContainerScoped`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Default">
+      <Item value="var" priority="1" />
+      <Item value="ConfigurationManager`0" priority="0" />
+      <Item value="MongoDB`0" priority="0" />
+      <Item value="connectionString" priority="0" />
+      <Item value="public" priority="2" />
+      <Item value="string" priority="3" />
+      <Item value="ctor" priority="0" />
+      <Item value="Tags" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="List&lt;string&gt;" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Configuration.ConfigurationManager">
+      <Item value="AppSettings" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Norm.Mongo">
+      <Item value="Create`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:ViewModels/f:TaggedNotesViewModel.cs" caret="0" fromTop="0" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Content/f:Site.less" caret="2510" fromTop="148" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Web.config" caret="2392" fromTop="20" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1551" fromTop="27" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:NoteRepository.cs" caret="0" fromTop="0" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="460" fromTop="9" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="195" fromTop="0" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:Note.cs" caret="209" fromTop="9" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Content/f:Site.less" caret="510" fromTop="26" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Web.config" caret="2497" fromTop="23" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1417" fromTop="30" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1417" fromTop="16" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="483" fromTop="9" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:Note.cs" caret="341" fromTop="14" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:Note.cs" caret="131" fromTop="5" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
