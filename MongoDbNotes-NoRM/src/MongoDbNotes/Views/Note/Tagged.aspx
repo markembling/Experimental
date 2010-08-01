@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<TaggedNotesViewModel>" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<MongoDbNotes.ViewModels.Note.TaggedViewModel>" %>
 <%@ Import Namespace="MongoDbNotes"%>
 <%@ Import Namespace="MongoDbNotes.ViewModels"%>
 

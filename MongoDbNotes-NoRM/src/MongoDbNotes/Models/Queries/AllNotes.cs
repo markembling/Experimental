@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using MongoDbNotes.Infrastructure;
+using MongoDbNotes.Models.Entities;
 using Norm;
 
 namespace MongoDbNotes.Models.Queries {

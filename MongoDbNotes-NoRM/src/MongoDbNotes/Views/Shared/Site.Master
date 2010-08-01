@@ -21,6 +21,7 @@
             <% } else if (!string.IsNullOrEmpty((string)TempData["notice"])) { %>
                 <div id="notice"><%= TempData["notice"] %></div>
             <% } %>
+            <%= Html.ValidationSummary() %>
         
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>

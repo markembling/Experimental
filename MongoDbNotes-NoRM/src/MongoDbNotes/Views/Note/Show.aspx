@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<MongoDbNotes.Models.Note>" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<MongoDbNotes.Models.Entities.Note>" %>
 <%@ Import Namespace="MongoDbNotes"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">

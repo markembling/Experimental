@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Norm;
 
-namespace MongoDbNotes.Models
+namespace MongoDbNotes.Models.Entities
 {
     public class Note {
         public Note() {

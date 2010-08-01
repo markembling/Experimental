@@ -1,3 +1,4 @@
+using MongoDbNotes.Models.Entities;
 using Norm.Configuration;
 
 namespace MongoDbNotes.Models.Mappings {

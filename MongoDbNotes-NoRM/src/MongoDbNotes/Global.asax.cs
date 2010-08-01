@@ -10,7 +10,12 @@ using System.Web.Services.Description;
 using Autofac;
 using Autofac.Integration.Web;
 using Autofac.Integration.Web.Mvc;
+using FluentValidation.Attributes;
+using FluentValidation.Mvc;
+using MongoDbNotes.Infrastructure;
 using MongoDbNotes.Models;
+using MongoDbNotes.Models.Binders;
+using MongoDbNotes.Models.Entities;
 using MongoDbNotes.Models.Mappings;
 using Norm;
 using Norm.Configuration;
@@ -47,7 +52,18 @@ namespace MongoDbNotes {
             builder.RegisterModule(new ContainerRegistrations());
             _containerProvider = new ContainerProvider(builder.Build());
 
+            // Hook up Autofac's controller factory
             ControllerBuilder.Current.SetControllerFactory(new AutofacControllerFactory(ContainerProvider));
+
+            // Hook up custom model binders
+            ModelBinders.Binders.Add(typeof(Note), new NoteBinder());
+
+            // Set up FluentValidation
+            DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
+            ModelValidatorProviders.Providers.Add(
+                new FluentValidationModelValidatorProvider(
+                    new AutofacValidatorFactory(ContainerProvider.ApplicationContainer)));
+
 
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MongoDbNotes.Models;
+using MongoDbNotes.Models.Entities;
 using MongoDbNotes.Models.Queries;
 using MongoDbNotes.ViewModels;
+using MongoDbNotes.ViewModels.Note;
 using Norm;
 
 namespace MongoDbNotes.Controllers {
@@ -31,8 +33,8 @@ namespace MongoDbNotes.Controllers {
         /// </summary>
         /// <param name="id">The id (as a string)</param>
         /// <returns></returns>
-        public ActionResult Show(string id) {
-            var note = new NoteById(new ObjectId(id)).Execute(_mongo);
+        public ActionResult Show(ObjectId id) {
+            var note = new NoteById(id).Execute(_mongo);
             return View(note);
         }
 
@@ -41,17 +43,8 @@ namespace MongoDbNotes.Controllers {
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Add(string title, string body, string tags) {
-            if (title.Length == 0)
-                ModelState.AddModelError("title", "Title cannot be blank");
-
-            if (body.Length == 0)
-                ModelState.AddModelError("body", "Body cannot be blank");
-
+        public ActionResult Add(Note note) {
             if (ModelState.IsValid) {
-                var note = new Note { Title = title, Body = body };
-                note.Tags.AddRange(tags.Split(new[]{' '}, StringSplitOptions.RemoveEmptyEntries));
-
                 _mongo.GetCollection<Note>().Save(note);
 
                 return RedirectToAction("Index");
@@ -66,8 +59,8 @@ namespace MongoDbNotes.Controllers {
         /// <param name="id">The id (as a string)</param>
         /// <returns></returns>
         [AcceptVerbs(HttpVerbs.Delete)]
-        public ActionResult Delete(string id) {
-            _mongo.GetCollection<Note>().Delete(new Note {Id = new ObjectId(id)});
+        public ActionResult Delete(ObjectId id) {
+            _mongo.GetCollection<Note>().Delete(new Note {Id = id});
 
             TempData["notice"] = "Note deleted";
             return RedirectToAction("Index");
@@ -81,7 +74,7 @@ namespace MongoDbNotes.Controllers {
         public ActionResult Tagged(string tag) {
             var results = new NotesByTag(tag).Execute(_mongo);
 
-            return View(new TaggedNotesViewModel {
+            return View(new TaggedViewModel {
                  TagName = tag, 
                  Notes = results
              });
