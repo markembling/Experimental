@@ -8,8 +8,8 @@ namespace MongoDbNotes {
         protected override void Load(ContainerBuilder builder) {
             builder.RegisterModule(new AutofacControllerModule(System.Reflection.Assembly.GetExecutingAssembly()));
 
-            builder.Register(c => MvcApplication.ConnectMongoDb()).SingletonScoped();
-            builder.Register(c => new NoteRepository(c.Resolve<Database>())).SingletonScoped();
+            builder.Register(c => MvcApplication.ConnectMongoDb()).ContainerScoped();
+            builder.Register(c => new NoteRepository(c.Resolve<Database>())).ContainerScoped();
         }
     }
 }
