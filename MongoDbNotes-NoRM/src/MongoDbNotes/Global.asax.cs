@@ -36,10 +36,8 @@ namespace MongoDbNotes {
         }
 
         public static Mongo ConnectMongoDb() {
-            var connectionString = ConfigurationManager.AppSettings["mongo-connection"];
             MongoConfiguration.Initialize(config => config.AddMap<NoteMap>());
-            var db = Mongo.Create(connectionString);
-            return db;
+            return Mongo.Create("MongoConnection");
         }
 
         protected void Application_Start() {
