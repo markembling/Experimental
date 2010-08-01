@@ -11,6 +11,7 @@ using Autofac;
 using Autofac.Integration.Web;
 using Autofac.Integration.Web.Mvc;
 using MongoDbNotes.Models;
+using MongoDbNotes.Models.Mappings;
 using Norm;
 using Norm.Configuration;
 

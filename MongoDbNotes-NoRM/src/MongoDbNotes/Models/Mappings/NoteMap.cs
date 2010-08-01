@@ -1,6 +1,6 @@
 using Norm.Configuration;
 
-namespace MongoDbNotes.Models {
+namespace MongoDbNotes.Models.Mappings {
     public class NoteMap : MongoConfigurationMap {
         public NoteMap() {
             For<Note>(config => {

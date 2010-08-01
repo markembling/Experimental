@@ -4,16 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MongoDbNotes.Models;
+using MongoDbNotes.Models.Queries;
 using MongoDbNotes.ViewModels;
 using Norm;
 
 namespace MongoDbNotes.Controllers {
     [HandleError]
     public class NoteController : Controller {
-        private readonly NoteRepository _repository;
+        private readonly Mongo _mongo;
 
-        public NoteController(NoteRepository notes) {
-            _repository = notes;
+        public NoteController(Mongo mongo) {
+            _mongo = mongo;
         }
 
         /// <summary>
@@ -21,8 +22,7 @@ namespace MongoDbNotes.Controllers {
         /// </summary>
         /// <returns></returns>
         public ActionResult Index() {
-            var notes = _repository.FindAll();
-
+            var notes = new AllNotes().Execute(_mongo);
             return View(notes);
         }
 
@@ -32,7 +32,7 @@ namespace MongoDbNotes.Controllers {
         /// <param name="id">The id (as a string)</param>
         /// <returns></returns>
         public ActionResult Show(string id) {
-            var note = _repository.FindOneById(new ObjectId(id));
+            var note = new NoteById(new ObjectId(id)).Execute(_mongo);
             return View(note);
         }
 
@@ -52,7 +52,7 @@ namespace MongoDbNotes.Controllers {
                 var note = new Note { Title = title, Body = body };
                 note.Tags.AddRange(tags.Split(new[]{' '}, StringSplitOptions.RemoveEmptyEntries));
 
-                _repository.Save(note);
+                _mongo.GetCollection<Note>().Save(note);
 
                 return RedirectToAction("Index");
             }
@@ -67,8 +67,7 @@ namespace MongoDbNotes.Controllers {
         /// <returns></returns>
         [AcceptVerbs(HttpVerbs.Delete)]
         public ActionResult Delete(string id) {
-            var oid = new ObjectId(id);
-            _repository.DeleteById(oid);
+            _mongo.GetCollection<Note>().Delete(new Note {Id = new ObjectId(id)});
 
             TempData["notice"] = "Note deleted";
             return RedirectToAction("Index");
@@ -80,7 +79,7 @@ namespace MongoDbNotes.Controllers {
         /// <param name="tag">The tag</param>
         /// <returns></returns>
         public ActionResult Tagged(string tag) {
-            var results = _repository.FindAll().Where(x => x.Tags.Contains(tag));
+            var results = new NotesByTag(tag).Execute(_mongo);
 
             return View(new TaggedNotesViewModel {
                  TagName = tag, 
