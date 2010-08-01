@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Services.Description;
-using Autofac.Builder;
+using Autofac;
 using Autofac.Integration.Web;
 using Autofac.Integration.Web.Mvc;
 using MongoDbNotes.Models;
@@ -17,7 +18,7 @@ namespace MongoDbNotes {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
-    public class MvcApplication : System.Web.HttpApplication, IContainerProviderAccessor {
+    public class MvcApplication : HttpApplication, IContainerProviderAccessor {
         static IContainerProvider _containerProvider;
 
         public IContainerProvider ContainerProvider {
@@ -43,16 +44,14 @@ namespace MongoDbNotes {
 
         protected void Application_Start() {
             var builder = new ContainerBuilder();
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterModule(new ContainerRegistrations());
             _containerProvider = new ContainerProvider(builder.Build());
+
             ControllerBuilder.Current.SetControllerFactory(new AutofacControllerFactory(ContainerProvider));
 
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
-        }
-
-        protected void Application_EndRequest(object sender, EventArgs e) {
-            ContainerProvider.DisposeRequestContainer();
         }
     }
 }
