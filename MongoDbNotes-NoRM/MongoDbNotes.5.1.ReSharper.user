@@ -12,32 +12,32 @@
       <Item value="ContainerScoped`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Default">
-      <Item value="var" priority="3" />
+      <Item value="var" priority="8" />
       <Item value="ConfigurationManager`0" priority="0" />
       <Item value="MongoDB`0" priority="0" />
       <Item value="connectionString" priority="0" />
       <Item value="public" priority="2" />
       <Item value="string" priority="3" />
-      <Item value="ctor" priority="1" />
+      <Item value="ctor" priority="6" />
       <Item value="Tags" priority="1" />
-      <Item value="new" priority="4" />
+      <Item value="new" priority="10" />
       <Item value="List&lt;string&gt;" priority="0" />
       <Item value="config" priority="5" />
       <Item value="db" priority="1" />
-      <Item value="return" priority="1" />
+      <Item value="return" priority="6" />
       <Item value="GetCollection`0" priority="2" />
-      <Item value="Note`0" priority="0" />
+      <Item value="Note`0" priority="3" />
       <Item value="Id" priority="1" />
       <Item value="x" priority="0" />
-      <Item value="note" priority="4" />
+      <Item value="note" priority="8" />
       <Item value="Model" priority="2" />
       <Item value="Title" priority="0" />
       <Item value="title" priority="0" />
       <Item value="Body" priority="0" />
       <Item value="body" priority="0" />
-      <Item value="Note" priority="0" />
-      <Item value="_containerProvider" priority="1" />
-      <Item value="builder" priority="0" />
+      <Item value="Note" priority="1" />
+      <Item value="_containerProvider" priority="3" />
+      <Item value="builder" priority="2" />
       <Item value="Mongo`0" priority="0" />
       <Item value="using" priority="1" />
       <Item value="Autofac" priority="0" />
@@ -51,6 +51,34 @@
       <Item value="Pandora" priority="0" />
       <Item value="m" priority="1" />
       <Item value="m2" priority="0" />
+      <Item value="IMongoGrouping" priority="0" />
+      <Item value="_db" priority="0" />
+      <Item value="mongo" priority="3" />
+      <Item value="IMultiQuery" priority="1" />
+      <Item value="ISingleQuery" priority="0" />
+      <Item value="ObjectId`0" priority="1" />
+      <Item value="NoteById`0" priority="0" />
+      <Item value="ObjectId" priority="0" />
+      <Item value="_mongo" priority="4" />
+      <Item value="_tag" priority="0" />
+      <Item value="NotesByTag`0" priority="0" />
+      <Item value="override" priority="0" />
+      <Item value="typeof" priority="0" />
+      <Item value="tagsValue" priority="1" />
+      <Item value="as" priority="1" />
+      <Item value="IRouteWithArea`0" priority="0" />
+      <Item value="NoteBinder`0" priority="0" />
+      <Item value="Html" priority="1" />
+      <Item value="NoteValidator`0" priority="1" />
+      <Item value="RuleFor`1" priority="1" />
+      <Item value="IContainer`0" priority="0" />
+      <Item value="_iocContainer" priority="0" />
+      <Item value="validatorType" priority="0" />
+      <Item value="instance" priority="0" />
+      <Item value="IValidator`0" priority="0" />
+      <Item value="result" priority="1" />
+      <Item value="AutofacValidatorFactory`0" priority="0" />
+      <Item value="ContainerProvider" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Configuration.ConfigurationManager">
       <Item value="AppSettings" priority="0" />
@@ -63,17 +91,17 @@
       <Item value="ForProperty`0" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:MongoDbNotes.Models.Note">
-      <Item value="Id" priority="4" />
+      <Item value="Id" priority="5" />
       <Item value="Title" priority="5" />
       <Item value="Body" priority="1" />
-      <Item value="Tags" priority="3" />
+      <Item value="Tags" priority="6" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Norm.Configuration.IPropertyMappingExpression">
       <Item value="UseAlias`0" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Norm.Mongo">
-      <Item value="Database" priority="0" />
-      <Item value="GetCollection`1" priority="1" />
+      <Item value="Database" priority="1" />
+      <Item value="GetCollection`1" priority="6" />
       <Item value="Dispose`0" priority="0" />
       <Item value="ConnectionProvider" priority="1" />
     </ItemStatistics>
@@ -85,26 +113,29 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:Norm.Collections.IMongoCollection`1">
       <Item value="FindOne`1" priority="0" />
-      <Item value="Find`2" priority="1" />
-      <Item value="AsQueryable`0" priority="1" />
-      <Item value="Save`0" priority="0" />
-      <Item value="Delete`0" priority="0" />
+      <Item value="Find`2" priority="2" />
+      <Item value="AsQueryable`0" priority="3" />
+      <Item value="Save`0" priority="1" />
+      <Item value="Delete`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
       <Item value="Where`1" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
-      <Item value="Contains`0" priority="0" />
+      <Item value="Contains`0" priority="1" />
       <Item value="Any`1" priority="0" />
-      <Item value="AddRange`0" priority="0" />
+      <Item value="AddRange`0" priority="1" />
+      <Item value="Clear`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Autofac.Integration.Web.IContainerProvider">
       <Item value="RequestLifetime" priority="1" />
-      <Item value="ApplicationContainer" priority="0" />
+      <Item value="ApplicationContainer" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Autofac.Builder.IRegistrationBuilder`3">
       <Item value="InstancePerLifetimeScope`0" priority="2" />
       <Item value="InstancePerDependency`0" priority="1" />
+      <Item value="As`0" priority="1" />
+      <Item value="SingleInstance`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Action`1">
       <Item value="Invoke`0" priority="0" />
@@ -121,56 +152,99 @@
     <ItemStatistics item="Qualified:Norm.IConnectionProvider">
       <Item value="Close`0" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:MongoDbNotes.Models.Queries.AllNotes">
+      <Item value="Execute`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MongoDbNotes.Models.Queries.NoteById">
+      <Item value="Execute`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MongoDbNotes.Models.Queries.NotesByTag">
+      <Item value="Execute`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ValueProviderResult">
+      <Item value="AttemptedValue" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Trim`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.HtmlHelper`1">
+      <Item value="ValidationSummary`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MongoDbNotes.Models.Entities.Note">
+      <Item value="Title" priority="0" />
+      <Item value="Body" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentValidation.IRuleBuilderInitial`2">
+      <Item value="NotEmpty`2" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Autofac.ContainerBuilder">
+      <Item value="Register`1" priority="1" />
+      <Item value="RegisterType`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Autofac.IContainer">
+      <Item value="TryResolve`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentValidation.AssemblyScanner+AssemblyScanResult">
+      <Item value="ValidatorType" priority="0" />
+      <Item value="InterfaceType" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Content/f:Site.less" caret="2510" fromTop="148" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:NoteMap.cs" caret="509" fromTop="10" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:Note.cs" caret="367" fromTop="13" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Helpers.cs" caret="619" fromTop="17" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:ViewModels/f:TaggedNotesViewModel.cs" caret="33" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Index.aspx" caret="700" fromTop="16" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Add.aspx" caret="0" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Tagged.aspx" caret="174" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Show.aspx" caret="178" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Shared/f:Site.Master" caret="565" fromTop="8" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Web.config" caret="9709" fromTop="32" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:NoteRepository.cs" caret="560" fromTop="18" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1293" fromTop="24" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="655" fromTop="13" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="332" fromTop="7" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Index.aspx" caret="709" fromTop="16" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Show.aspx" caret="187" fromTop="0" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Web.config" caret="1332" fromTop="14" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Mappings/f:NoteMap.cs" caret="579" fromTop="13" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Queries/f:NoteById.cs" caret="462" fromTop="12" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Queries/f:NotesByTag.cs" caret="522" fromTop="13" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Queries/f:AllNotes.cs" caret="339" fromTop="6" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Add.aspx" caret="558" fromTop="12" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Binders/f:NoteBinder.cs" caret="101" fromTop="2" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Entities/f:Note.cs" caret="75" fromTop="2" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Content/f:Site.less" caret="416" fromTop="3" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1908" fromTop="20" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="67" fromTop="1" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Validators/f:NoteValidator.cs" caret="60" fromTop="0" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:AutofacValidatorFactory.cs" caret="76" fromTop="3" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:IMultiQuery.cs" caret="65" fromTop="2" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:ISingleQuery.cs" caret="34" fromTop="1" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ViewHelpers.cs" caret="426" fromTop="12" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Tagged.aspx" caret="0" fromTop="0" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:ViewModels/d:Note/f:TaggedViewModel.cs" caret="202" fromTop="4" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="792" fromTop="28" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Shared/f:Site.Master" caret="529" fromTop="8" />
     </RecentFiles>
     <RecentEdits>
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Index.aspx" caret="647" fromTop="13" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Show.aspx" caret="134" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Show.aspx" caret="281" fromTop="3" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Show.aspx" caret="937" fromTop="19" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Tagged.aspx" caret="135" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Tagged.aspx" caret="844" fromTop="16" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Note/f:Show.aspx" caret="456" fromTop="7" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Shared/f:Site.Master" caret="1240" fromTop="25" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="1721" fromTop="26" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="1578" fromTop="20" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:NoteRepository.cs" caret="609" fromTop="11" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="2147" fromTop="20" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:NoteRepository.cs" caret="767" fromTop="26" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="2526" fromTop="20" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:NoteRepository.cs" caret="713" fromTop="15" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/f:NoteRepository.cs" caret="327" fromTop="12" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Web.config" caret="8435" fromTop="24" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Web.config" caret="10206" fromTop="22" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Web.config" caret="9709" fromTop="32" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="232" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="2109" fromTop="21" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="394" fromTop="10" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1288" fromTop="21" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="14" fromTop="0" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1885" fromTop="25" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="777" fromTop="11" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="1293" fromTop="24" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="290" fromTop="1" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="655" fromTop="13" />
-      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="371" fromTop="7" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Shared/f:Site.Master" caret="1021" fromTop="22" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="2616" fromTop="39" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Binders/f:NoteBinder.cs" caret="101" fromTop="2" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Entities/f:Note.cs" caret="315" fromTop="2" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Entities/f:Note.cs" caret="112" fromTop="2" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Validators/f:NoteValidator.cs" caret="293" fromTop="6" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Models/d:Validators/f:NoteValidator.cs" caret="89" fromTop="0" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:AutofacValidatorFactory.cs" caret="277" fromTop="7" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:AutofacValidatorFactory.cs" caret="556" fromTop="14" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="750" fromTop="24" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="687" fromTop="22" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="236" fromTop="7" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="2610" fromTop="29" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Content/f:Site.less" caret="621" fromTop="16" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Content/f:Site.less" caret="700" fromTop="20" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="2544" fromTop="31" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="2194" fromTop="25" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:Global.asax.cs" caret="2037" fromTop="23" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="400" fromTop="10" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ContainerRegistrations.cs" caret="748" fromTop="18" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:AutofacValidatorFactory.cs" caret="76" fromTop="3" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:IMultiQuery.cs" caret="65" fromTop="2" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Infrastructure/f:ISingleQuery.cs" caret="34" fromTop="1" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="1072" fromTop="34" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="1298" fromTop="25" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Controllers/f:NoteController.cs" caret="1852" fromTop="27" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ViewHelpers.cs" caret="416" fromTop="10" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/f:ViewHelpers.cs" caret="116" fromTop="4" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:ViewModels/d:Note/f:TaggedViewModel.cs" caret="66" fromTop="1" />
+      <File id="037CCE11-FA72-44DB-8FB4-7AD9E55BF639/d:Views/d:Shared/f:Site.Master" caret="518" fromTop="6" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

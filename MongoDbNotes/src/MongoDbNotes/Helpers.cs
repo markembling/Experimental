@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Web.Mvc;
-using MongoDB.Driver;
+using MongoDB;
 
 namespace MongoDbNotes {
     public static class Helpers {
@@ -13,7 +13,7 @@ namespace MongoDbNotes {
         }
 
         public static string ToFriendlyString(this Oid oid) {
-            var bytes = oid.Value;
+            var bytes = oid.ToByteArray();
             return BitConverter.ToString(bytes).Replace("-", "").ToLower();
         }
     }

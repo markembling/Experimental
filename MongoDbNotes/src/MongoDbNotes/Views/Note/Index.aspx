@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Document>>" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<MongoDB.Document>>" %>
+<%@ Import Namespace="MongoDB" %>
 <%@ Import Namespace="MongoDbNotes"%>
-<%@ Import Namespace="MongoDB.Driver"%>
 
 <asp:Content ID="indexTitle" ContentPlaceHolderID="TitleContent" runat="server">
     <%= Html.Title(null) %></asp:Content>

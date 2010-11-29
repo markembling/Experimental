@@ -1,16 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using MongoDB.Driver;
+using MongoDB;
 
 namespace MongoDbNotes.Models
 {
     public class NoteRepository
     {
-        private readonly Database _db;
+        private readonly IMongoDatabase _db;
         private const string CollectionName = "notes";
 
-        public NoteRepository(Database db) {
+        public NoteRepository(IMongoDatabase db) {
             _db = db;
         }
 
@@ -32,14 +32,11 @@ namespace MongoDbNotes.Models
         }
 
         public void Save(Document doc) {
-            var updateSpec = new Document();
-            updateSpec["_id"] = doc["_id"];
-
-            GetCollection().Update(doc, updateSpec, 1);
+            GetCollection().Save(doc);
         }
 
         public void Delete(Document spec) {
-            GetCollection().Delete(spec);
+            GetCollection().Remove(spec);
         }
 
         public void DeleteById(Oid id) {

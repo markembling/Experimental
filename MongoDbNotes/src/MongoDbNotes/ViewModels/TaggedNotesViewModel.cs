@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using MongoDB.Driver;
+using MongoDB;
 
 namespace MongoDbNotes.ViewModels {
     public class TaggedNotesViewModel {

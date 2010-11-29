@@ -1,5 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<TaggedNotesViewModel>" %>
-<%@ Import Namespace="MongoDB.Driver"%>
+<%@ Import Namespace="MongoDB" %>
 <%@ Import Namespace="MongoDbNotes"%>
 <%@ Import Namespace="MongoDbNotes.ViewModels"%>
 

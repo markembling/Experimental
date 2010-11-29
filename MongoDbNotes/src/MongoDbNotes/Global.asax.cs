@@ -9,7 +9,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Web;
 using Autofac.Integration.Web.Mvc;
-using MongoDB.Driver;
+using MongoDB;
 
 namespace MongoDbNotes {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -32,22 +32,13 @@ namespace MongoDbNotes {
             );
         }
 
-        public static MongoDB.Driver.Database ConnectMongoDb() {
-            var host = ConfigurationManager.AppSettings["mongo-host"];
-            var port = int.Parse(ConfigurationManager.AppSettings["mongo-port"]);
-            var dbname = ConfigurationManager.AppSettings["mongo-database"];
-            var username = ConfigurationManager.AppSettings["mongo-username"];
-            var password = ConfigurationManager.AppSettings["mongo-password"];
+        public static IMongoDatabase ConnectMongoDb() {
+            var url = ConfigurationManager.AppSettings["mongo-connection"];
+            var dbName = ConfigurationManager.AppSettings["mongo-database"];
 
-            var mongo = new Mongo(host, port);
+            var mongo = new Mongo(url);
             mongo.Connect();
-            var db = mongo.getDB(dbname);
-
-            if (! string.IsNullOrEmpty(username)) {
-                db.Authenticate(username, password);
-            }
-
-            //db.Authenticate()
+            var db = mongo.GetDatabase(dbName);
 
             return db;
         }
