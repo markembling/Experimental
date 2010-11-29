@@ -1,4 +1,5 @@
 using Autofac;
+using Autofac.Integration.Web;
 using FluentValidation;
 using MongoDbNotes.Models;
 using MongoDbNotes.Models.Entities;
@@ -8,7 +9,7 @@ using Norm;
 namespace MongoDbNotes {
     public class ContainerRegistrations : Module {
         protected override void Load(ContainerBuilder builder) {
-            builder.Register(c => MvcApplication.ConnectMongoDb()).InstancePerLifetimeScope();
+            builder.Register(c => MvcApplication.ConnectMongoDb()).HttpRequestScoped();
 
             // Register validators
             AssemblyScanner

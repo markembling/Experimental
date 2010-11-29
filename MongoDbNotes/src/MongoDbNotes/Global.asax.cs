@@ -32,15 +32,19 @@ namespace MongoDbNotes {
             );
         }
 
-        public static IMongoDatabase ConnectMongoDb() {
+        public static IMongo ConnectMongo() {
             var url = ConfigurationManager.AppSettings["mongo-connection"];
-            var dbName = ConfigurationManager.AppSettings["mongo-database"];
 
             var mongo = new Mongo(url);
             mongo.Connect();
-            var db = mongo.GetDatabase(dbName);
 
-            return db;
+            return mongo;
+        }
+
+        public static IMongoDatabase GetDatabase(IMongo mongo) {
+            var dbName = ConfigurationManager.AppSettings["mongo-database"];
+
+            return mongo.GetDatabase(dbName);
         }
 
         protected void Application_Start() {
