@@ -1,9 +1,41 @@
 $(function() {
+	var running = true;
+	
 	var canvas = $("#canvas");
 	var context = canvas.get(0).getContext("2d");
 	var circles = [];
 	
-	var x = 100;	
+	// Button events
+	$("#start").click(function(){ 
+		running = true; 
+		generateCircles(30);
+		
+		$("#start").attr('disabled', 'disabled');
+		$("#stop").removeAttr('disabled');
+		$("#more").removeAttr('disabled');
+	});
+	
+	$("#stop").click(function(){ 
+		running = false;
+		
+		$("#stop").attr('disabled', 'disabled');
+		$("#more").attr('disabled', 'disabled');
+		$("#start").removeAttr('disabled');
+	});
+	
+	$("#more").click(function(){
+		if (running)
+			generateCircles(10);
+	});
+	
+	// Canvas sizing
+	function resizeCanvas() {
+		canvas.attr("width", $(window).width());
+		canvas.attr("height", $(window).height());
+		
+		//canvasWidth = canvas.width();
+		//canvasHeight = canvas.height();
+	}
 	
 	function randomColour() {
 		var r = randomFromTo(20, 80);
@@ -38,6 +70,9 @@ $(function() {
 	}
 	
 	function animateCircles() {
+		if (circles.length == 0) return;
+
+		
 		clearCanvas();
 		
 		for (var i in circles) {
@@ -59,7 +94,9 @@ $(function() {
 					circle.y >= (canvas.height() - circle.radius) || circle.y <= (0 + circle.radius)) {
 					
 					circles[i] = null;
-					circles.push(generateCircle());
+					
+					if (running)
+						circles.push(generateCircle());
 				}
 			}
 		}
@@ -68,11 +105,16 @@ $(function() {
 		removeFromArrayMatching(circles, null);
 	}
 	
+	// Init
+	resizeCanvas();
 	generateCircles(30);
 	setInterval(function(){
 		animateCircles();
 	}, 50);
 	
+	$(window).resize(function() { 
+		resizeCanvas();
+	});	
 });
 
 

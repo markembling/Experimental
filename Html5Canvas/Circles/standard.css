@@ -1,7 +1,73 @@
 body {
 	margin: 0;
 	padding: 0;
+	background-color: rgb(246, 245, 237);
+	color: rgb(57, 57, 57);
+	font-family: Cambria, Georgia, "Times New Roman", serif;
+	font-size: 90%;
+	text-align: center;
 }
 
-#canvas {
+#canvas { 
+	display: block;
+	margin: 0; 
+	padding: 0; 
+}
+
+/* Links */
+a:link, a:active, a:visited {
+	color: rgb(57, 57, 57);
+	/*background-color: inherit;*/
+	text-decoration: underline;
+}
+a:hover, a:focus {
+	color: rgb(57, 57, 57);
+}
+
+#extras {
+	display: block;
+	opacity: 0.2;
+	background-color: rgba(125, 172, 191, 0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 10em;
+	
+	margin-top: -9em;
+	-webkit-transition: all 0.3s ease-in;
+}
+#extras:hover {
+	opacity: 1;
+	margin-top: 0;
+}
+
+header h1 { 
+	font-family: Lobster, Calibri, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
+	color: rgb(255, 255, 255);
+}
+
+#controls {
+	margin: 0;
+	padding: 0;
+}
+
+footer {
+	font-size: 0.9em;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	display: block;
+	width: 100%;
+}
+footer p {
+	margin: 1em;
+	padding: 0;
 }
