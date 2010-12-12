@@ -98,11 +98,11 @@ $(function() {
 
 		// Determine format
 		var canPlayType = audio.get(0).canPlayType("audio/ogg");
-		var musicFile = 'music/';
+		var musicFile = '';
 		if (canPlayType.match(/maybe|probably/i)) {
-			musicFile += choice.ogg;
+			musicFile = choice.ogg;
 		} else {
-			musicFile += choice.mp3;
+			musicFile = choice.mp3;
 		}
 
 		audio.attr('src', musicFile);
