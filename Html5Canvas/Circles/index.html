@@ -11,28 +11,55 @@
 	<script src="behaviour2.js" type="text/javascript"></script>
 </head>
 <body>
-	<div id="pre-content">
-		<header>
-			<h1>Canvas Circles</h1>
-		</header>
+	<header>
+		<h1>Canvas Circles</h1>
+	</header>
 
-		<section id="controls">
+	<canvas id="canvas" width="600" height="600"></canvas>
+	<audio id="music"></audio>
+	
+	<section id="description">
+		<div id="description-content">
+			<p>This page grew out of an experiment with HTML5 canvas, prompted by the 
+				<a href="http://markembling.info/view/html5-canvas-hack-night">HTML5 Canvas Hack Night</a> 
+				which <a href="http://rawkes.com/">Rob Hawkes</a> ran. It was intended as nothing more than
+				a plaything to get a bit of experience seeing what canvas could do, but it has ended up as
+				a testbed for everything new and shiny, including canvas, audio, <i>lots</i> of transparency and general use of the new-and-shiny.</p>
+			<p>Music is chosen from a random selection of creative-commons licensed tracks, and helps 
+				provide the slightly trippy hypnotic vibe which comes when you watch for too long.</p>
+			<p>Stare into the centre and enjoy.</p>
+			<p><a href="#" id="about-close">Close</a></p>
+		</div>
+	</section>
+	
+	<footer>
+		<nav id="controls">
 			<ul>
 				<li id="start"><a href="#">Start</a></li>
 				<li id="stop"><a href="#">Stop</a></li>
 				<li id="more"><a href="#">More Circles</a></li>
 			</ul>
-		</section>
-	</div>
-
-	<canvas id="canvas" width="600" height="600"></canvas>
-	
-	<footer>
-		<p>
+			<span class="separator">✽</span>
+			<ul id="music-menu">
+				<li id="stop-music"><a href="#">No Music</a></li>
+				<li id="start-music"><a href="#">Add Music</a></li>
+				<li id="change-music"><a href="#">Change Track</a></li>
+			</ul>
+			<span class="separator" id="music-separator">✽</span>
+			<ul>
+				<li id="about"><a href="#">About</a></li>
+			</ul>
+		</nav>
+		
+		<p id="credits">
 			<i>by</i> <a href="http://markembling.info/" rel="author">Mark Embling</a>
 			<span class="separator">✽</span>
-			<i>Music:</i> whatever
+			<i>Music: </i><span id="music-credit">none playing</span>
+			<span class="separator">✽</span>
+			<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="markembling">Tweet</a>
 		</p>
 	</footer>
+	
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 </body>
 </html>

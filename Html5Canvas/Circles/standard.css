@@ -4,11 +4,19 @@ body {
 	background-color: rgb(246, 245, 237);
 	color: rgb(57, 57, 57);
 	font-family: Cambria, Georgia, "Times New Roman", serif;
+	text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 	font-size: 90%;
 	text-align: center;
 }
 
-#canvas { 
+::selection {
+	background: rgb(125, 172, 191);
+	color: rgb(255, 255, 255);
+	text-shadow: none !important;
+	-webkit-text-shadow: none !important;
+}
+
+canvas, section, nav { 
 	display: block;
 	margin: 0; 
 	padding: 0; 
@@ -24,70 +32,66 @@ a:hover, a:focus {
 	color: rgb(57, 57, 57);
 }
 
-#pre-content {
+/*#pre-content {
 	display: block;
 	opacity: 0.2;
-	background-color: rgba(125, 172, 191, 0.7);
+	background-color: rgba(125, 172, 191, 0.8);
 	position: fixed;
 	top: 0;
 	left: 0;
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	height: 8em;
+	height: 25em;
+	margin-top: -24em;
+	color: rgb(255, 255, 255);
+	text-shadow: rgba(0,0,0,0.7) 1px 1px 1px;
 	
-	margin-top: -7em;
 	-webkit-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
 }
 #pre-content:hover {
 	opacity: 1;
 	margin-top: 0;
 }
 
+#pre-content a { color: rgb(255, 255, 255); }*/
+
 header h1 { 
 	font-family: Lobster, Calibri, Helvetica, Arial, sans-serif;
 	font-weight: normal;
-	text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
-	color: rgb(255, 255, 255);
-	margin: 0.3em 0 0 0;
+	/*color: rgb(255, 255, 255); */
+	margin: 0.5em 0 0 0;
 	padding: 0;
-	line-height: 2em;
-	background: transparent url(bg-header.png) no-repeat bottom center;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 }
 
-#controls {
-	margin: 0;
-	padding: 0;
-	font-size: 1.2em;
+#description {
+	display: none;
+	position: fixed;
+	top: 4.8em;
+	left: 0;
+	width: 100%;
 }
-#controls ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0.5em 0 0.6em 0;
-}
-#controls ul li {
-	margin: 0;
-	padding: 0;
-	display: inline;
-	color: rgb(255, 255, 255);
-    text-shadow: rgba(0,0,0,0.6) 1px 1px 1px;
-}
-#controls a:link, 
-#controls a:active, 
-#controls a:visited {
-	padding: 0.5em 0.5em 0.6em 0.5em;
-	color: #FFF;
-    text-decoration: none;
-}
-#controls a:hover,
-#controls a:focus {
-/*    padding: 9px;*/
-	padding: 0.5em 0.5em 0.6em 0.5em;
-    background-color: #6B9DB0;
-	background-color: rgba(84, 137, 157, 0.4em);
-/*    background-image: url(../images/bg-menu-hover.png);*/
-    background-position: bottom left;
-    background-repeat: repeat-x;
+#description-content {
+	font-size: 1.1em;
+	width: 50em;
+	margin: 0 auto;
+	text-align: left;
+	line-height: 180%;
+	padding: 1em;
+	background-color: rgba(255, 255, 255, 0.8);
+	
+	-moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	
+	border-radius: 5px;
+	border: 5px solid rgba(125, 172, 191, 0.8);
 }
 
 footer {
@@ -97,14 +101,36 @@ footer {
 	left: 0;
 	margin: 0;
 	padding: 0;
-	text-align: right;
 	display: block;
 	width: 100%;
-	text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
-footer p {
+footer p, 
+footer #controls {
 	margin: 1em;
 	padding: 0;
+}
+footer #controls {
+	float: left;
+	display: block;
+	text-align: left;
+}
+footer #controls ul { 
+	list-style-type: none; 
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+footer #controls ul li {
+	display: inline;
+	margin: 0 0.5em 0 0;
+	padding: 0;
+}
+footer #credits { 
+	text-align: right;
+	float: right; 
+}
+footer #credits .twitter-share-button {
+	margin-bottom: -5px;
 }
 
 .separator {
