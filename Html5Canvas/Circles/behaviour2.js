@@ -1,34 +1,41 @@
+// The music we have to choose from...
 var music = [
 	{ credit: 'Freedom Is Me by <a href="http://dig.ccmixter.org/dig?user=scottaltham">scottaltham</a>', 
-	  ogg: 'freedom-is-me.ogg', 
-	  mp3: 'freedom-is-me.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/freedom-is-me.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/freedom-is-me.mp3' },
 	{ credit: 'Without LOVE by <a href="http://dig.ccmixter.org/dig?user=Loveshadow">Loveshadow</a>', 
-	  ogg: 'without-love.ogg', 
-	  mp3: 'without-love.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/without-love.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/without-love.mp3' },
 	{ credit: 'The Sweetest Sin by <a href="http://dig.ccmixter.org/dig?user=Loveshadow">Loveshadow</a>', 
-	  ogg: 'the-sweetest-sin.ogg', 
-	  mp3: 'the-sweetest-sin.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/the-sweetest-sin.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/the-sweetest-sin.mp3' },
 	{ credit: 'Glow by <a href="http://dig.ccmixter.org/dig?user=gurdonark">Gurdonark</a>', 
-	  ogg: 'glow.ogg', 
-	  mp3: 'glow.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/glow.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/glow.mp3' },
 	
 	// Earth by zero-project
 	{ credit: '<a href="http://www.jamendo.com/en/track/373259">Killing Earth</a> by <a href="http://www.jamendo.com/en/artist/zero-project">zero-project</a>', 
-	  ogg: 'earth/ogg/01.ogg', mp3: 'earth/mp3/01.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/earth_01.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/earth_01.mp3' },
 	{ credit: '<a href="http://www.jamendo.com/en/track/373268">Still Breathing</a> by <a href="http://www.jamendo.com/en/artist/zero-project">zero-project</a>', 
-	  ogg: 'earth/ogg/02.ogg', mp3: 'earth/mp3/02.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/earth_02.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/earth_2.mp3' },
 	{ credit: '<a href="http://www.jamendo.com/en/track/373287">Millenium Sunset</a> by <a href="http://www.jamendo.com/en/artist/zero-project">zero-project</a>', 
-	  ogg: 'earth/ogg/03.ogg', mp3: 'earth/mp3/03.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/earth_03.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/earth_03.mp3' },
 	{ credit: '<a href="http://www.jamendo.com/en/track/373290">Earthbeat</a> by <a href="http://www.jamendo.com/en/artist/zero-project">zero-project</a>', 
-	  ogg: 'earth/ogg/04.ogg', mp3: 'earth/mp3/04.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/earth_04.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/earth_04.mp3' },
 	{ credit: '<a href="http://www.jamendo.com/en/track/373293">Distorted Reality</a> by <a href="http://www.jamendo.com/en/artist/zero-project">zero-project</a>', 
-	  ogg: 'earth/ogg/05.ogg', mp3: 'earth/mp3/05.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/earth_05.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/earth_05.mp3' },
 	{ credit: '<a href="http://www.jamendo.com/en/track/373300">Ephemeral Living</a> by <a href="http://www.jamendo.com/en/artist/zero-project">zero-project</a>', 
-	  ogg: 'earth/ogg/06.ogg', mp3: 'earth/mp3/06.mp3' },
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/earth_06.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/earth_06.mp3' },
 	{ credit: '<a href="http://www.jamendo.com/en/track/373302">Epilogue</a> by <a href="http://www.jamendo.com/en/artist/zero-project">zero-project</a>', 
-	  ogg: 'earth/ogg/07.ogg', mp3: 'earth/mp3/07.mp3' }
+	  ogg: 'http://assets.markembling.info/experiments/canvas-circles/music/ogg/earth_07.ogg', 
+	  mp3: 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/earth_07.mp3' }
 ];
-
 
 $(function() {
 	var generating = false;
@@ -301,20 +308,12 @@ function Colour(r, g, b, a) {
 	}
 }
 
+// Generate a random number between the lowest and highest (inclusive)
 function randomFromTo(from, to){
 	return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
-// http://stackoverflow.com/questions/281264/remove-empty-elements-from-an-array-in-javascript
-/*Array.prototype.removeMatching = function(deleteValue) {
-  for (var i = 0; i < this.length; i++) {
-    if (this[i] == deleteValue) {         
-      this.splice(i, 1);
-      i--;
-    }
-  }
-  return this;
-};*/
+// Technique from: http://stackoverflow.com/questions/281264/remove-empty-elements-from-an-array-in-javascript
 function removeFromArrayMatching(fromArray, deleteValue) {
 	for (var i = 0; i < fromArray.length; i++) {
 		if (fromArray[i] == deleteValue) {
