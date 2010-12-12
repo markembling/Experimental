@@ -1,33 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Circle</title>
-	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<title>Canvas Circles</title>
+	
+	<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
 	<link href="standard.css" rel="stylesheet" type="text/css" />
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
-	<!--<script src="behaviour.js" type="text/javascript"></script>-->
 	<script src="behaviour2.js" type="text/javascript"></script>
 </head>
 <body>
-	<div id="extras">
+	<div id="pre-content">
 		<header>
-			<h1>Canvas Blobs</h1>
+			<h1>Canvas Circles</h1>
 		</header>
 
 		<section id="controls">
-			<p>
-				<a href="#" id="start">Start</a>
-				<a href="#" id="stop">Stop</a>
-				<a href="#" id="more">More blobs</a>
-			</p>
+			<ul>
+				<li id="start"><a href="#">Start</a></li>
+				<li id="stop"><a href="#">Stop</a></li>
+				<li id="more"><a href="#">More Circles</a></li>
+			</ul>
 		</section>
 	</div>
 
 	<canvas id="canvas" width="600" height="600"></canvas>
 	
 	<footer>
-		<p>by <a href="http://markembling.info/" rel="author">Mark Embling</a></p>
+		<p>
+			<i>by</i> <a href="http://markembling.info/" rel="author">Mark Embling</a>
+			<span class="separator">✽</span>
+			<i>Music:</i> whatever
+		</p>
 	</footer>
 </body>
 </html>

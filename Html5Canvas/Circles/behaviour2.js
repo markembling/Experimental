@@ -1,5 +1,5 @@
 $(function() {
-	var generating = true;
+	var generating = false;
 	
 	var canvas = $("#canvas");
 	var context = canvas.get(0).getContext("2d");
@@ -7,24 +7,12 @@ $(function() {
 	
 	// Button events
 	$("#start").click(function(){ 
-		generating = true; 
-		generateCircles(30);
-		
-		$("#start").hide();
-		$("#stop").show();
-		$("#more").show();
-		
+		startAll();
 		return false;
 	});
 	
 	$("#stop").click(function(){ 
-		generating = false;
-		fadeAllCircles();
-		
-		$("#stop").hide();
-		$("#more").hide();
-		$("#start").show();
-		
+		stopAll();
 		return false;
 	});
 	
@@ -84,6 +72,24 @@ $(function() {
 		}
 	}
 	
+	function startAll() {
+		generating = true; 
+		generateCircles(30);
+		
+		$("#start").hide();
+		$("#stop").show();
+		$("#more").show();
+	}
+	
+	function stopAll() {
+		generating = false;
+		fadeAllCircles();
+		
+		$("#stop").hide();
+		$("#more").hide();
+		$("#start").show();
+	}
+	
 	function animateCircles() {
 		if (circles.length == 0) return;
 
@@ -123,7 +129,7 @@ $(function() {
 	
 	// Init
 	resizeCanvas();
-	generateCircles(30);
+	startAll();
 	setInterval(function(){
 		animateCircles();
 	}, 50);

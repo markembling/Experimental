@@ -24,7 +24,7 @@ a:hover, a:focus {
 	color: rgb(57, 57, 57);
 }
 
-#extras {
+#pre-content {
 	display: block;
 	opacity: 0.2;
 	background-color: rgba(125, 172, 191, 0.7);
@@ -34,12 +34,12 @@ a:hover, a:focus {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	height: 10em;
+	height: 8em;
 	
-	margin-top: -9em;
+	margin-top: -7em;
 	-webkit-transition: all 0.3s ease-in;
 }
-#extras:hover {
+#pre-content:hover {
 	opacity: 1;
 	margin-top: 0;
 }
@@ -49,11 +49,45 @@ header h1 {
 	font-weight: normal;
 	text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
 	color: rgb(255, 255, 255);
+	margin: 0.3em 0 0 0;
+	padding: 0;
+	line-height: 2em;
+	background: transparent url(bg-header.png) no-repeat bottom center;
 }
 
 #controls {
 	margin: 0;
 	padding: 0;
+	font-size: 1.2em;
+}
+#controls ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0.5em 0 0.6em 0;
+}
+#controls ul li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+	color: rgb(255, 255, 255);
+    text-shadow: rgba(0,0,0,0.6) 1px 1px 1px;
+}
+#controls a:link, 
+#controls a:active, 
+#controls a:visited {
+	padding: 0.5em 0.5em 0.6em 0.5em;
+	color: #FFF;
+    text-decoration: none;
+}
+#controls a:hover,
+#controls a:focus {
+/*    padding: 9px;*/
+	padding: 0.5em 0.5em 0.6em 0.5em;
+    background-color: #6B9DB0;
+	background-color: rgba(84, 137, 157, 0.4em);
+/*    background-image: url(../images/bg-menu-hover.png);*/
+    background-position: bottom left;
+    background-repeat: repeat-x;
 }
 
 footer {
@@ -66,11 +100,13 @@ footer {
 	text-align: right;
 	display: block;
 	width: 100%;
+	text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
 footer p {
 	margin: 1em;
 	padding: 0;
 }
 
-/* Default control visibility */
-#start { display: none; }
+.separator {
+	margin: 0 0.4em;
+}
