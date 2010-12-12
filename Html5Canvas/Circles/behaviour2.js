@@ -1,5 +1,5 @@
 $(function() {
-	var running = true;
+	var generating = true;
 	
 	var canvas = $("#canvas");
 	var context = canvas.get(0).getContext("2d");
@@ -7,25 +7,32 @@ $(function() {
 	
 	// Button events
 	$("#start").click(function(){ 
-		running = true; 
+		generating = true; 
 		generateCircles(30);
 		
-		$("#start").attr('disabled', 'disabled');
-		$("#stop").removeAttr('disabled');
-		$("#more").removeAttr('disabled');
+		$("#start").hide();
+		$("#stop").show();
+		$("#more").show();
+		
+		return false;
 	});
 	
 	$("#stop").click(function(){ 
-		running = false;
+		generating = false;
+		fadeAllCircles();
 		
-		$("#stop").attr('disabled', 'disabled');
-		$("#more").attr('disabled', 'disabled');
-		$("#start").removeAttr('disabled');
+		$("#stop").hide();
+		$("#more").hide();
+		$("#start").show();
+		
+		return false;
 	});
 	
 	$("#more").click(function(){
-		if (running)
+		if (generating)
 			generateCircles(10);
+		
+		return false;
 	});
 	
 	// Canvas sizing
@@ -69,6 +76,14 @@ $(function() {
 		context.clearRect(0, 0, canvas.width(), canvas.height());
 	}
 	
+	// Fade all circles away immediately
+	function fadeAllCircles() {
+		for (var i in circles) {
+			var circle = circles[i];
+			circle.fadeOut();
+		}
+	}
+	
 	function animateCircles() {
 		if (circles.length == 0) return;
 
@@ -89,13 +104,14 @@ $(function() {
 					circle.fadeOut();
 				}
 				
-				// Kill old ones right at the edge
+				// Kill old ones right at the edge (or those fully faded)
 				if (circle.x >= (canvas.width() - circle.radius) || circle.x <= (0 + circle.radius) || 
-					circle.y >= (canvas.height() - circle.radius) || circle.y <= (0 + circle.radius)) {
+					circle.y >= (canvas.height() - circle.radius) || circle.y <= (0 + circle.radius) || 
+					circle.hasFaded()) {
 					
 					circles[i] = null;
 					
-					if (running)
+					if (generating)
 						circles.push(generateCircle());
 				}
 			}
@@ -126,6 +142,7 @@ function Circle() {
 	this.yMovementStep;
 	this.colour;
 	this._isFading = false;
+	this._fullyFaded = false;
 	
 	this.move = function() {
 		this.x += this.xMovementStep;
@@ -153,11 +170,16 @@ function Circle() {
 		this._isFading = true;
 	}
 	
+	this.hasFaded = function() {
+		return this._fullyFaded;
+	}
+	
 	this._performFade = function() {
 		if (this.colour.a > 0) {
 			this.colour.a = Math.round((this.colour.a - 0.04) * 100) / 100;
 		} else {
 			this.colour.a = 0;
+			this._fullyFaded = true;
 		}
 	}
 }
