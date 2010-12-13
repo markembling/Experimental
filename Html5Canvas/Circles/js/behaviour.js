@@ -85,8 +85,7 @@ $(function() {
 	
 	// Canvas sizing
 	function resizeCanvas() {
-		canvas.attr("width", $(window).width());
-		canvas.attr("height", $(window).height());
+		canvas.attr({height: $(window).height(), width: $(window).width()});
 	}
 	
 	// Music
@@ -234,16 +233,14 @@ $(function() {
 		}
 	}
 	
+	$(window).resize(resizeCanvas);
+	
 	// Init
 	resizeCanvas();
 	startAll();
 	setInterval(function(){
 		animateCircles();
 	}, 50);
-	
-	$(window).resize(function() { 
-		resizeCanvas();
-	});
 });
 
 // Generate a random number between the lowest and highest (inclusive)
