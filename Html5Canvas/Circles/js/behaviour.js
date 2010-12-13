@@ -205,25 +205,21 @@ $(function() {
 			
 			circle.move();
 			circle.draw(context);
-			
-			// Start the fading of nearly-old ones getting near the edge
-			if (circle.x >= (canvas.width() - circle.radius - 60) || circle.x <= (0 + circle.radius + 60) || 
-				circle.y >= (canvas.height() - circle.radius - 60) || circle.y <= (0 + circle.radius + 60)) {
-				
-				circle.fadeOut();
-			}
-			
-			// Kill old ones right at the edge (or those fully faded)
-			if (circle.x >= (canvas.width() - circle.radius) || circle.x <= (0 + circle.radius) || 
-				circle.y >= (canvas.height() - circle.radius) || circle.y <= (0 + circle.radius) || 
+						
+			if (circle.x >= (canvasWidth - circle.radius) || circle.x <= (0 + circle.radius) || 
+				circle.y >= (canvasHeight - circle.radius) || circle.y <= (0 + circle.radius) || 
 				circle.hasFaded()) {
-				
-				// Remove this circle and decrement i (so we don't skip anything)
+				// Kill old ones right at the edge (or those fully faded):
+				// remove this circle and decrement i (so we don't skip anything)
 				circles.splice(i, 1);
 				i--;
 				
 				if (generating)
 					circles.push(generateCircle());
+			} else if (circle.x >= (canvasWidth - circle.radius - 60) || circle.x <= (0 + circle.radius + 60) || 
+				       circle.y >= (canvasHeight - circle.radius - 60) || circle.y <= (0 + circle.radius + 60)) {
+				// Start the fading of nearly-old ones getting near the edge
+				circle.fadeOut();
 			}
 		}
 	}
