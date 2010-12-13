@@ -22,6 +22,12 @@ canvas, section, nav {
 	padding: 0; 
 }
 
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 /* Links */
 a:link, a:active, a:visited {
 	color: rgb(57, 57, 57);
