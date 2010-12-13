@@ -12,6 +12,12 @@ I have written about this app, and my thoughts regarding MongoDB and its use fro
 
 This is the same application as above, but converted to use the [NoRM][6] driver. 
 
+### Html5Canvas
+
+Experiments with HTML5 canvas.
+
+ - Circles - This is my [Canvas Circles][7] experiment, which I have also [written about][8].
+
 
 [1]: http://www.mongodb.org/
 [2]: http://github.com/samus/mongodb-csharp
@@ -19,3 +25,5 @@ This is the same application as above, but converted to use the [NoRM][6] driver
 [4]: http://www.markembling.info/blog/view/better-css-with-dotless
 [5]: http://www.markembling.info/blog/view/mongodb-and-csharp
 [6]: http://normproject.org/
+[7]: http://experiments.markembling.info/canvas-circles/
+[8]: http://markembling.info/view/canvas-circles
