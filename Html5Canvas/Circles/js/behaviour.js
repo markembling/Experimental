@@ -195,19 +195,22 @@ $(function() {
 	}
 	
 	function animateCircles() {
-		if (circles.length == 0) return;
+		if (circles.length == 0) return;  // Do nothing if there is nothing to do ;)
 
-		
 		clearCanvas();
-		
 		for (var i = 0; i < circles.length; i++) {
 			var circle = circles[i];
 			
 			circle.move();
 			circle.draw(context);
-						
-			if (circle.x >= (canvasWidth - circle.radius) || circle.x <= (0 + circle.radius) || 
-				circle.y >= (canvasHeight - circle.radius) || circle.y <= (0 + circle.radius) || 
+			
+			// Pre-calculate some stuff so we don't do it more than once
+			var xLeftEdge = yTopEdge = /* 0 + */circle.radius;
+			var xRightEdge = canvasWidth - circle.radius;
+			var yBottomEdge = canvasHeight - circle.radius;
+			
+			if (circle.x >= xRightEdge || circle.x <= xLeftEdge || 
+				circle.y >= yBottomEdge || circle.y <= yTopEdge || 
 				circle.hasFaded()) {
 				// Kill old ones right at the edge (or those fully faded):
 				// remove this circle and decrement i (so we don't skip anything)
@@ -216,8 +219,8 @@ $(function() {
 				
 				if (generating)
 					circles.push(generateCircle());
-			} else if (circle.x >= (canvasWidth - circle.radius - 60) || circle.x <= (0 + circle.radius + 60) || 
-				       circle.y >= (canvasHeight - circle.radius - 60) || circle.y <= (0 + circle.radius + 60)) {
+			} else if (circle.x >= (xRightEdge - 60) || circle.x <= (xLeftEdge + 60) || 
+				       circle.y >= (yBottomEdge - 60) || circle.y <= (yTopEdge + 60)) {
 				// Start the fading of nearly-old ones getting near the edge
 				circle.fadeOut();
 			}
