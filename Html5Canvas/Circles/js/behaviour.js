@@ -226,14 +226,14 @@ $(function() {
 					circles.push(generateCircle());
 			}
 		}
-		
-		// Change music if necessary
-		if (audioPlaying && $('#music').get(0).ended) {
-			randomMusic();
-		}
 	}
 	
 	$(window).resize(resizeCanvas);
+	
+	// Change the music when the audio 'ended' event is fired.
+	$('#music').bind('ended', function() {
+		randomMusic();
+	});
 	
 	// Init
 	resizeCanvas();
