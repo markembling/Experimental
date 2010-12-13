@@ -43,6 +43,7 @@ $(function() {
 	
 	var canvas = $("#canvas");
 	var context = canvas.get(0).getContext("2d");
+	var canvasWidth, canvasHeight;
 	var circles = [];
 	
 	// Button events
@@ -85,7 +86,9 @@ $(function() {
 	
 	// Canvas sizing
 	function resizeCanvas() {
-		canvas.attr({height: $(window).height(), width: $(window).width()});
+		canvas.attr({ height: $(window).height(), width: $(window).width() });
+		canvasWidth = canvas.width();
+		canvasHeight = canvas.height();
 	}
 	
 	// Music
@@ -141,8 +144,8 @@ $(function() {
 		circle.yMovementStep = randomFromTo(-6, 6);
 		
 		circle.radius = randomFromTo(1, 6);			
-		circle.x = Math.floor(canvas.width() / 2);
-		circle.y = Math.floor(canvas.height() / 2);
+		circle.x = Math.floor(canvasWidth / 2);
+		circle.y = Math.floor(canvasHeight / 2);
 		
 		return circle;
 	}
@@ -154,7 +157,7 @@ $(function() {
 	}
 
 	function clearCanvas() {
-		context.clearRect(0, 0, canvas.width(), canvas.height());
+		context.clearRect(0, 0, canvasWidth, canvasHeight);
 	}
 	
 	// Fade all circles away immediately
@@ -197,35 +200,32 @@ $(function() {
 		
 		clearCanvas();
 		
-		for (var i in circles) {
+		for (var i = 0; i < circles.length; i++) {
 			var circle = circles[i];
 			
-			if (circle !== null) {
-				circle.move();
-				circle.draw(context);
+			circle.move();
+			circle.draw(context);
+			
+			// Start the fading of nearly-old ones getting near the edge
+			if (circle.x >= (canvas.width() - circle.radius - 60) || circle.x <= (0 + circle.radius + 60) || 
+				circle.y >= (canvas.height() - circle.radius - 60) || circle.y <= (0 + circle.radius + 60)) {
 				
-				// Start the fading of nearly-old ones getting near the edge
-				if (circle.x >= (canvas.width() - circle.radius - 60) || circle.x <= (0 + circle.radius + 60) || 
-					circle.y >= (canvas.height() - circle.radius - 60) || circle.y <= (0 + circle.radius + 60)) {
-					
-					circle.fadeOut();
-				}
+				circle.fadeOut();
+			}
+			
+			// Kill old ones right at the edge (or those fully faded)
+			if (circle.x >= (canvas.width() - circle.radius) || circle.x <= (0 + circle.radius) || 
+				circle.y >= (canvas.height() - circle.radius) || circle.y <= (0 + circle.radius) || 
+				circle.hasFaded()) {
 				
-				// Kill old ones right at the edge (or those fully faded)
-				if (circle.x >= (canvas.width() - circle.radius) || circle.x <= (0 + circle.radius) || 
-					circle.y >= (canvas.height() - circle.radius) || circle.y <= (0 + circle.radius) || 
-					circle.hasFaded()) {
-					
-					circles[i] = null;
-					
-					if (generating)
-						circles.push(generateCircle());
-				}
+				// Remove this circle and decrement i (so we don't skip anything)
+				circles.splice(i, 1);
+				i--;
+				
+				if (generating)
+					circles.push(generateCircle());
 			}
 		}
-		
-		// Remove all the killed ones from the circles array
-		removeFromArrayMatching(circles, null);
 		
 		// Change music if necessary
 		if (audioPlaying && $('#music').get(0).ended) {
@@ -247,13 +247,3 @@ $(function() {
 function randomFromTo(from, to){
 	return Math.floor(Math.random() * (to - from + 1) + from);
 }
-
-// Technique from: http://stackoverflow.com/questions/281264/remove-empty-elements-from-an-array-in-javascript
-function removeFromArrayMatching(fromArray, deleteValue) {
-	for (var i = 0; i < fromArray.length; i++) {
-		if (fromArray[i] == deleteValue) {
-			fromArray.splice(i, 1);
-			i--;
-		}
-	}
-};

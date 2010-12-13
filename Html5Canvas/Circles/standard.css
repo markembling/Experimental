@@ -12,8 +12,8 @@ body {
 ::selection {
 	background: rgb(125, 172, 191);
 	color: rgb(255, 255, 255);
-	text-shadow: none !important;
 	-webkit-text-shadow: none !important;
+	text-shadow: none !important;
 }
 
 canvas, section, nav { 
