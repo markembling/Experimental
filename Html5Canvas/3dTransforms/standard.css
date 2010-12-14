@@ -1,0 +1,67 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: rgb(125, 172, 191);
+	color: rgb(255, 255, 255);
+	text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
+}
+
+header {
+	display: block;
+	margin: 1em 0;
+	padding: 0;
+}
+header h1 { 
+	font-family: Lobster, Calibri, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	margin: 0.5em 0 0 0;
+	padding: 0;
+	text-align: center;
+}
+
+#container {
+	width: 496px;
+	margin: 0 auto;
+
+	-webkit-perspective: 900;
+	-webkit-perspective-origin: 50% 50%;
+}
+
+.box {
+	background-color: rgb(246, 245, 237);
+	/*border: 1px solid rgb(0, 0, 0);*/
+	border-radius: 10px;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	float: left;
+	
+	-webkit-box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+	-webkit-transition: -webkit-transform ease 1s;
+}
+
+.box.left-left { -webkit-transform: rotateY(60deg) rotateX(20deg); }
+.box.left-centre { -webkit-transform: rotateY(40deg) rotateZ(20deg); }
+.box.right-centre { -webkit-transform: rotateY(-40deg) rotateX(-20deg); }
+.box.right-right { -webkit-transform: rotateY(-60deg) rotateZ(-20deg); }
+
+.box.left-left.flipped1 { -webkit-transform: rotateY(-30deg) rotateX(-20deg); }
+.box.left-centre.flipped1 { -webkit-transform: rotateY(-30deg) rotateZ(-20deg);  }
+.box.right-centre.flipped1 { -webkit-transform: rotateY(30deg) rotateX(20deg); }
+.box.right-right.flipped1 { -webkit-transform: rotateY(30deg) rotateZ(20deg); }
+
+.box.left-left.flipped2 { -webkit-transform: rotateZ(-10deg) rotateX(-40deg); }
+.box.left-centre.flipped2 { -webkit-transform: rotateY(5deg) rotateZ(0deg);  }
+.box.right-centre.flipped2 { -webkit-transform: rotateZ(12deg) rotateX(-20deg); }
+.box.right-right.flipped2 { -webkit-transform: rotateY(-25deg) rotateZ(-10deg); }
+
+/* Box hover effects *//*
+.box:hover { background-color: rgb(179, 241, 255); }
+.box:hover { -webkit-transform: rotate3d(0,0,0,0); } */
+
+.box canvas {
+	display: block;
+	border-radius: 10px;
+}
