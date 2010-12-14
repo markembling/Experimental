@@ -90,6 +90,8 @@ footer nav ul li {
 	display: inline;
 }
 footer #credits { float: right; }
+footer .separator { margin: 0 0.4em; }
+
 
 #status {
 	clear: both;

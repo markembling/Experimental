@@ -15,11 +15,10 @@ function Circle() {
 	}
 }
 
-
+var boxAnimationInterval = null;
+var canvasAnimationInterval = null;
 $(function(){
 	var circles = [];
-	var boxAnimationInterval = null;
-	var canvasAnimationInterval = null;
 	var canvases = $('canvas');
 
 	function animateCanvases() {
@@ -125,7 +124,7 @@ $(function(){
 		clearInterval(boxAnimationInterval);
 		clearInterval(canvasAnimationInterval);
 		clearCanvases();
-		$('.box').addClass('faded');
+		$('canvas').addClass('faded');
 	}
 	
 	//controls
@@ -137,8 +136,7 @@ $(function(){
 		return false;
 	});
 	$('#start').click(function(){
-		$('#music').attr('src', 'http://assets.markembling.info/experiments/transforms/testdrive.m4a');
-		//$('#music').attr('src', 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/the-sweetest-sin.mp3');
+		$('#music').get(0).play();
 		
 		return false;
 	});
