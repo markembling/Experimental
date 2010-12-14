@@ -20,10 +20,7 @@ $(function(){
 	var circles = [];
 	var boxAnimationInterval = null;
 	var canvasAnimationInterval = null;
-	var canvases = $('.box canvas');
-	
-	
-	
+	var canvases = $('canvas');
 
 	function animateCanvases() {
 		// clear all canvases
@@ -47,7 +44,7 @@ $(function(){
 			}
 			
 			var theContextForThisCircle = 
-				$('#box' + circles[i].canvas + ' canvas').get(0).getContext('2d');
+				$('canvas#box' + circles[i].canvas + '').get(0).getContext('2d');
 			circles[i].draw(theContextForThisCircle);
 		}
 		
@@ -61,8 +58,7 @@ $(function(){
 
 	// Flip flop
 	function animateBoxes() {
-		var boxes = $('.box');
-		jQuery.each(boxes, function(i, x){  
+		jQuery.each(canvases, function(i, x){  
 			var randomFlipState = randomFromTo(0, 2);
 			var thisBox = $(x);
 			if (randomFlipState == 0) {
@@ -94,10 +90,13 @@ $(function(){
 	
 	// When it's ready to play, do so
 	$('#music').bind('canplay', function() {
+		// Hide status
+		$('#status').fadeOut();
+		
 		$('#music').get(0).play();
 		
-		// Unfade
-		$('.box').removeClass('faded');
+		// Unfade canvases
+		$('canvas').removeClass('faded');
 		
 		// Canvas animation
 		canvasAnimationInterval = setInterval(function() {
@@ -110,8 +109,17 @@ $(function(){
 		}, 4300 - beatDuration);
 	});
 	
+
 	$('#music').bind('pause', stopAction);
 	$('#music').bind('ended', stopAction);
+	$('#music').bind('stalled', function() { status('There seems to be a problem loading the music...'); });
+	$('#music').bind('suspend', function() { status('Stopped trying to load music.'); });
+	$('#music').bind('error', function() { status('There was an error loading/playing the music.'); });
+	
+	function status(message) {
+		$('#status').text(message)
+		            .fadeIn();
+	}
 	
 	function stopAction() {
 		clearInterval(boxAnimationInterval);
@@ -120,15 +128,19 @@ $(function(){
 		$('.box').addClass('faded');
 	}
 	
-	
 	//controls
 	$('#stop').click(function(){
 		var music = $('#music').get(0);
 		music.pause();
 		music.currentTime = 0;
+		
+		return false;
 	});
 	$('#start').click(function(){
-		$('#music').attr('src', 'http://assets.markembling.info/experiments/transforms/testdrive.mp3');
+		$('#music').attr('src', 'http://assets.markembling.info/experiments/transforms/testdrive.m4a');
+		//$('#music').attr('src', 'http://assets.markembling.info/experiments/canvas-circles/music/mp3/the-sweetest-sin.mp3');
+		
+		return false;
 	});
 	
 	// Generate a random number between the lowest and highest (inclusive)
