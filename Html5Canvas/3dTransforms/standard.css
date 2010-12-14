@@ -93,8 +93,10 @@ footer nav ul li {
 	display: inline;
 }
 footer #credits { float: right; }
+footer #credits .twitter-share-button { margin-bottom: -5px; }
+/*footer #credits .db-wrapper { margin-bottom: -4px; }
+footer #credits iframe { margin-bottom: -4px; }*/
 footer .separator { margin: 0 0.4em; }
-
 
 #status {
 	clear: both;
