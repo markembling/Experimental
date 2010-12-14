@@ -8,6 +8,10 @@ body {
 	text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
 }
 
+a {
+	color: rgb(255, 255, 255);
+}
+
 header {
 	display: block;
 	margin: 1em 0;
@@ -37,9 +41,10 @@ header h1 {
 	height: 100px;
 	margin: 10px;
 	float: left;
+	opacity: 1;
 	
 	-webkit-box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
-	-webkit-transition: -webkit-transform ease 1s;
+	-webkit-transition: -webkit-transform ease 0.3s;
 }
 
 .box.left-left { -webkit-transform: rotateY(60deg) rotateX(20deg); }
@@ -57,6 +62,8 @@ header h1 {
 .box.right-centre.flipped2 { -webkit-transform: rotateZ(12deg) rotateX(-20deg); }
 .box.right-right.flipped2 { -webkit-transform: rotateY(-25deg) rotateZ(-10deg); }
 
+.box.faded { opacity: 0.1; }
+
 /* Box hover effects *//*
 .box:hover { background-color: rgb(179, 241, 255); }
 .box:hover { -webkit-transform: rotate3d(0,0,0,0); } */
@@ -64,4 +71,9 @@ header h1 {
 .box canvas {
 	display: block;
 	border-radius: 10px;
+}
+
+footer {
+	display: block;
+	clear: both;
 }
