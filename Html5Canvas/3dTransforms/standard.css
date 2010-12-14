@@ -4,6 +4,9 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: rgb(125, 172, 191);
+	background-image: url(bg.png);
+	background-repeat: repeat-x;
+	background-position: top left;
 	color: rgb(255, 255, 255);
 	text-shadow: rgba(0,0,0,0.5) 1px 1px 1px;
 }
@@ -37,7 +40,7 @@ canvas {
 	display: block;
 	background-color: rgb(246, 245, 237);
 	border-radius: 10px;
-	margin: 10px;
+	margin: 16px 10px;
 	float: left;
 	opacity: 1;
 	border-radius: 10px;
