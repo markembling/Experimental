@@ -8,10 +8,18 @@
 			'height': 100,							// Height of the canvas
 			'class': 'dialify-meter',				// Class(es) to add to the canvas
 			
-			// Drawing options
+			// Drawing options *
 			'drawDialFace': true,					// Should the dial face (and scale area) be drawn?
 			'scaleArcRadius': null,					// Radius of the outer edge of the dial scale
 			'drawSpindle': true,					// Should the spindle thing in the middle be drawn?
+			
+			// Colours *
+			'dialFaceColor': '#FFF',
+			'dialOutlineColor': '#000',
+			'scaleRangeColor': '#DDD',
+			'pointerColor': '#000',
+			'spindleColor': '#999',
+			'spindleOutlineColor': '#000',
 			
 			// Pointer options
 			'pointerWidth': 4,						// Thickness of pointer
@@ -21,13 +29,8 @@
 				{ 'min': null, 'max': null },
 			'pointerLength': null,					// Length of the pointer (from centre point to end)
 			
-			// Colours
-			'dialFaceColor': '#FFF',
-			'dialOutlineColor': '#000',
-			'scaleRangeColor': '#DDD',
-			'pointerColor': '#000',
-			'spindleColor': '#999',
-			'spindleOutlineColor': '#000'
+			// Use a custom image to build up the dial (cancels out starred options)
+			'image': null
 		};
 		
 		// merge options and defaults
@@ -60,6 +63,12 @@
 			// Drawing
 			var context = canvas.getContext("2d");
 			
+			// Load in image if we need to
+			var img = new Image();
+			img.src = settings['image'];
+			// Erm... going to have to wait for it to load. Need big refactor.
+			
+			
 			// Set min and max rotation angle
 			var minValueRotationAngle = 
 				_ifNull(settings['pointerRange']['min'], (0 - (Math.PI * 1.25)));
@@ -74,7 +83,7 @@
 			
 			var scaleWidth = (smallestDimension / 8);
 			var scaleDistanceFromEdge = 1 + (scaleWidth * 2);
-			if (settings['drawDialFace']) {
+			if (settings['drawDialFace'] && !settings['image']) {
 				// Draw face
 				context.fillStyle = settings['dialFaceColor'];
 				context.strokeStyle = settings['dialOutlineColor'];
@@ -84,6 +93,8 @@
 				context.closePath();
 				context.fill();
 				context.stroke();
+			} else {
+				context.drawImage()
 			}
 			
 			// Draw area scale arc thing
@@ -96,7 +107,7 @@
 			
 			context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
 			
-			if (settings['drawDialFace']) {
+			if (settings['drawDialFace'] && !settings['image']) {
 				context.strokeStyle = settings['scaleRangeColor'];
 				context.lineWidth = scaleWidth;
 				context.beginPath();
@@ -116,23 +127,25 @@
 			// Calculate pointer length
 			var pointerLength = _ifNull(settings['pointerLength'], scaleArcRadius);
 			
-			// Rotate and draw needle
+			// Rotate for needle
 			var currentValueRotationAngle = ((value - min) * (maxValueRotationAngle - minValueRotationAngle) / (max - min) + minValueRotationAngle);  // thanks to @vkornov for giving me this formula
 				
 			//context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
 			context.rotate(currentValueRotationAngle);  // Rotate by the appropriate angle
 			
-			context.strokeStyle = settings['pointerColor'];
-			context.lineJoin = "round";
-			context.lineWidth = 4;
-			context.beginPath()
-			context.moveTo(0, 0);  // Get into middle
-			context.lineTo(pointerLength, 0);
-			context.closePath();
-			context.stroke();
+			if (!settings['image']) {
+				context.strokeStyle = settings['pointerColor'];
+				context.lineJoin = "round";
+				context.lineWidth = 4;
+				context.beginPath()
+				context.moveTo(0, 0);  // Get into middle
+				context.lineTo(pointerLength, 0);
+				context.closePath();
+				context.stroke();
+			}
 			
 			// Draw middle bit
-			if (settings['drawSpindle']) {
+			if (settings['drawSpindle'] && !settings['image']) {
 				context.fillStyle = settings['spindleColor'];
 				context.strokeStyle = settings['spindleOutlineColor'];
 				context.lineWidth = 1;
