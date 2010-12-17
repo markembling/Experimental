@@ -3,8 +3,9 @@
 	
 		// sort out some defaults
 		var settings = {
-			'size': 100,							// Size (width and height) to draw the canvas
-			'class': 'meter',						// Class(es) to add to the canvas
+			'width': 100,							// Width of the canvas
+			'height': 100,							// Height of the canvas
+			'class': 'dialify-meter',				// Class(es) to add to the canvas
 			'drawDialFace': 'true',					// Should the dial face (and scale area) be drawn?
 			'pointerWidth': 4,						// Thickness of pointer
 			'pointerRotationPoint': 				// The point at which the pointer rotates (from top left)
@@ -26,11 +27,16 @@
 			var min = $(this).attr("min");
 			var max = $(this).attr("max");
 			var value = $(this).attr("value");
+			
+			var smallestDimension = 
+				(settings['width'] > settings['height']) ? 
+				settings['height'] : 
+				settings['width'];
 		
 			// Create canvas
 			canvas = document.createElement('canvas');
-			canvas.setAttribute('width', settings['size']);
-			canvas.setAttribute('height', settings['size']);
+			canvas.setAttribute('width', settings['width']);
+			canvas.setAttribute('height', settings['height']);
 			canvas.className = settings['class'];
 			
 			// Insert canvas and remove meter.
@@ -48,11 +54,11 @@
 				
 			// Set pointer rotation point
 			var pointerRotationPointX = 
-				_ifNull(settings['pointerRotationPoint']['x'], settings['size'] / 2);
+				_ifNull(settings['pointerRotationPoint']['x'], settings['width'] / 2);
 			var pointerRotationPointY = 
-				_ifNull(settings['pointerRotationPoint']['y'], settings['size'] / 2);
+				_ifNull(settings['pointerRotationPoint']['y'], settings['height'] / 2);
 			
-			var scaleWidth = (settings['size'] / 8);
+			var scaleWidth = (smallestDimension / 8);
 			var scaleDistanceFromEdge = 1 + (scaleWidth * 2);
 			if (settings['drawDialFace']) {
 				// Draw face
@@ -60,7 +66,7 @@
 				context.strokeStyle = "rgb(0, 0, 0)";
 				context.lineWidth = 1;
 				context.beginPath();
-				context.arc(settings['size'] / 2, settings['size'] / 2, ((settings['size'] - 2) / 2) - 1, Math.PI * 2, false);
+				context.arc(settings['width'] / 2, settings['height'] / 2, ((smallestDimension - 2) / 2) - 1, Math.PI * 2, false);
 				context.closePath();
 				context.fill();
 				context.stroke();
@@ -69,7 +75,7 @@
 			// Draw area scale arc thing
 			var scaleArcRadius = settings['scaleArcRadius'];
 			if (scaleArcRadius == null) {
-				scaleArcRadius = (settings['size'] - scaleDistanceFromEdge) / 2;
+				scaleArcRadius = (smallestDimension - scaleDistanceFromEdge) / 2;
 			} else {
 				scaleArcRadius -= (scaleWidth / 2);
 			}
@@ -115,7 +121,7 @@
 			context.strokeStyle = "rgb(0, 0, 0)";
 			context.lineWidth = 1;
 			context.beginPath();
-			context.arc(0, 0, (settings['size']) / 12, Math.PI * 2, false);
+			context.arc(0, 0, (smallestDimension) / 12, Math.PI * 2, false);
 			context.closePath();
 			context.fill();
 			context.stroke();
