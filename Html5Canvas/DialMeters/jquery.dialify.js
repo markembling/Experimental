@@ -3,10 +3,16 @@
 	
 		// sort out some defaults
 		var settings = {
-			'size': 100,							// Size (width and height) to draw the canas
+			'size': 100,							// Size (width and height) to draw the canvas
 			'class': 'meter',						// Class(es) to add to the canvas
 			'drawDialFace': 'true',					// Should the dial face (and scale area) be drawn?
-			'pointerWidth': 4						// Thickness of pointer
+			'pointerWidth': 4,						// Thickness of pointer
+			'pointerRotationPoint': 				// The point at which the pointer rotates (from top left)
+				{ 'x': null , 'y': null },
+			'pointerRange': 						// The angle range in radians (where 0 = 3 o'clock position)
+				{ 'min': null, 'max': null },
+			'scaleArcRadius': null,					// Radius of the outer edge of the dial scale
+			'pointerLength': null					// Length of the pointer (from centre point to end)
 		};
 		
 		// merge options and defaults
@@ -20,7 +26,6 @@
 			var min = $(this).attr("min");
 			var max = $(this).attr("max");
 			var value = $(this).attr("value");
-			var optimum = $(this).attr("optimum");
 		
 			// Create canvas
 			canvas = document.createElement('canvas');
@@ -30,11 +35,22 @@
 			
 			// Insert canvas and remove meter.
 			$(this).before(canvas)
-					  //.remove();
-					  .hide();
+			       .hide();
 			
 			// Drawing
 			var context = canvas.getContext("2d");
+			
+			// Set min and max rotation angle
+			var minValueRotationAngle = 
+				_ifNull(settings['pointerRange']['min'], (0 - (Math.PI * 1.25)));
+			var maxValueRotationAngle = 
+				_ifNull(settings['pointerRange']['max'], (Math.PI * 0.25));
+				
+			// Set pointer rotation point
+			var pointerRotationPointX = 
+				_ifNull(settings['pointerRotationPoint']['x'], settings['size'] / 2);
+			var pointerRotationPointY = 
+				_ifNull(settings['pointerRotationPoint']['y'], settings['size'] / 2);
 			
 			var scaleWidth = (settings['size'] / 8);
 			var scaleDistanceFromEdge = 1 + (scaleWidth * 2);
@@ -48,36 +64,49 @@
 				context.closePath();
 				context.fill();
 				context.stroke();
+			}
 			
-				// Draw area scale arc thing
+			// Draw area scale arc thing
+			var scaleArcRadius = settings['scaleArcRadius'];
+			if (scaleArcRadius == null) {
+				scaleArcRadius = (settings['size'] - scaleDistanceFromEdge) / 2;
+			} else {
+				scaleArcRadius -= (scaleWidth / 2);
+			}
+			
+			context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
+			
+			if (settings['drawDialFace']) {
 				context.strokeStyle = "rgb(102, 203, 255)";
 				context.lineWidth = scaleWidth;
 				context.beginPath();
 				context.arc(
-					settings['size'] / 2, 
-					settings['size'] / 2, 
-					(settings['size'] - scaleDistanceFromEdge) / 2,  // radius
-					Math.PI - (Math.PI / 4),
-					(Math.PI * 2.25), 
+					0,//settings['size'] / 2, 
+					0,//settings['size'] / 2, 
+					//(settings['size'] - scaleDistanceFromEdge) / 2,  // radius
+					scaleArcRadius,
+					minValueRotationAngle, 
+					maxValueRotationAngle,
 					false
 				);
 				context.stroke();
 				context.closePath();
 			}
 			
-			// Rotate and draw needle
-			var minValueRotationAngle = 0 - (Math.PI * 1.25);
-			var maxValueRotationAngle = (Math.PI * 0.25);
-			var currentValueRotationAngle = ((value - min) * (maxValueRotationAngle - minValueRotationAngle) / (max - min) + minValueRotationAngle);  // thanks to @vkornov for giving me this formula
+			// Calculate pointer length
+			var pointerLength = _ifNull(settings['pointerLength'], scaleArcRadius);
 			
-			context.translate(settings['size'] / 2, settings['size'] / 2);  // Move origin (& rotation point) to center
+			// Rotate and draw needle
+			var currentValueRotationAngle = ((value - min) * (maxValueRotationAngle - minValueRotationAngle) / (max - min) + minValueRotationAngle);  // thanks to @vkornov for giving me this formula
+				
+			//context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
 			context.rotate(currentValueRotationAngle);  // Rotate by the appropriate angle
 			
 			context.strokeStyle = "rgb(0, 0, 0)";
 			context.lineWidth = 4;
 			context.beginPath()
 			context.moveTo(0, 0);  // Get into middle
-			context.lineTo((settings['size'] / 2) - (scaleWidth), 0);
+			context.lineTo(pointerLength, 0);
 			context.closePath();
 			context.stroke();
 			
@@ -92,5 +121,12 @@
 			context.stroke();
 		});
 	
+	
+		// Helper methods
+		function _ifNull(value, ifNullResult) {
+			if (value === null || value === undefined)
+				return ifNullResult;
+			return value;
+		}
 	};
 })(jQuery);

@@ -11,6 +11,14 @@
 		$('meter.type1').dialify();
 		$('meter.type2').dialify({ 'drawDialFace': false });
 		$('meter.type3').dialify({ 'size': 180 });
+		$('meter.type4').dialify({
+			'pointerRange': { 'min': 0 - Math.PI, 'max': 0 }
+		});
+		$('meter.type5').dialify({
+			'pointerRotationPoint': { 'y': 60 },
+			'scaleArcRadius': 36,
+			'pointerLength': 24
+		});
 	});
 	</script>
 </head>
@@ -37,8 +45,13 @@
 	
 	<hr />
 	
-	<meter value="5" min="5" max="15"></meter>
-	<meter value="10" min="5" max="15"></meter>
-	<meter value="15" min="5" max="15"></meter>
-</body>
+	<meter class="type4" value="5" min="5" max="15"></meter>
+	<meter class="type4" value="10" min="5" max="15"></meter>
+	<meter class="type4" value="15" min="5" max="15"></meter>
+	
+	<hr />
+	
+	<meter class="type5" value="0" min="0" max="10"></meter>
+	<meter class="type5" value="5" min="0" max="10"></meter>
+	<meter class="type5" value="10" min="0" max="10"></meter></body>
 </html>
