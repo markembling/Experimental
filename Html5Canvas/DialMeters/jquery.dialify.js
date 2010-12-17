@@ -3,17 +3,31 @@
 	
 		// sort out some defaults
 		var settings = {
+			// Canvas options
 			'width': 100,							// Width of the canvas
 			'height': 100,							// Height of the canvas
 			'class': 'dialify-meter',				// Class(es) to add to the canvas
-			'drawDialFace': 'true',					// Should the dial face (and scale area) be drawn?
+			
+			// Drawing options
+			'drawDialFace': true,					// Should the dial face (and scale area) be drawn?
+			'scaleArcRadius': null,					// Radius of the outer edge of the dial scale
+			'drawSpindle': true,					// Should the spindle thing in the middle be drawn?
+			
+			// Pointer options
 			'pointerWidth': 4,						// Thickness of pointer
 			'pointerRotationPoint': 				// The point at which the pointer rotates (from top left)
 				{ 'x': null , 'y': null },
 			'pointerRange': 						// The angle range in radians (where 0 = 3 o'clock position)
 				{ 'min': null, 'max': null },
-			'scaleArcRadius': null,					// Radius of the outer edge of the dial scale
-			'pointerLength': null					// Length of the pointer (from centre point to end)
+			'pointerLength': null,					// Length of the pointer (from centre point to end)
+			
+			// Colours
+			'dialFaceColor': '#FFF',
+			'dialOutlineColor': '#000',
+			'scaleRangeColor': '#DDD',
+			'pointerColor': '#000',
+			'spindleColor': '#999',
+			'spindleOutlineColor': '#000'
 		};
 		
 		// merge options and defaults
@@ -62,8 +76,8 @@
 			var scaleDistanceFromEdge = 1 + (scaleWidth * 2);
 			if (settings['drawDialFace']) {
 				// Draw face
-				context.fillStyle = "rgb(223, 249, 255)";
-				context.strokeStyle = "rgb(0, 0, 0)";
+				context.fillStyle = settings['dialFaceColor'];
+				context.strokeStyle = settings['dialOutlineColor'];
 				context.lineWidth = 1;
 				context.beginPath();
 				context.arc(settings['width'] / 2, settings['height'] / 2, ((smallestDimension - 2) / 2) - 1, Math.PI * 2, false);
@@ -83,7 +97,7 @@
 			context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
 			
 			if (settings['drawDialFace']) {
-				context.strokeStyle = "rgb(102, 203, 255)";
+				context.strokeStyle = settings['scaleRangeColor'];
 				context.lineWidth = scaleWidth;
 				context.beginPath();
 				context.arc(
@@ -108,7 +122,8 @@
 			//context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
 			context.rotate(currentValueRotationAngle);  // Rotate by the appropriate angle
 			
-			context.strokeStyle = "rgb(0, 0, 0)";
+			context.strokeStyle = settings['pointerColor'];
+			context.lineJoin = "round";
 			context.lineWidth = 4;
 			context.beginPath()
 			context.moveTo(0, 0);  // Get into middle
@@ -117,14 +132,16 @@
 			context.stroke();
 			
 			// Draw middle bit
-			context.fillStyle = "rgb(145, 145, 145)";
-			context.strokeStyle = "rgb(0, 0, 0)";
-			context.lineWidth = 1;
-			context.beginPath();
-			context.arc(0, 0, (smallestDimension) / 12, Math.PI * 2, false);
-			context.closePath();
-			context.fill();
-			context.stroke();
+			if (settings['drawSpindle']) {
+				context.fillStyle = settings['spindleColor'];
+				context.strokeStyle = settings['spindleOutlineColor'];
+				context.lineWidth = 1;
+				context.beginPath();
+				context.arc(0, 0, (smallestDimension) / 12, Math.PI * 2, false);
+				context.closePath();
+				context.fill();
+				context.stroke();
+			}
 		});
 	
 	

@@ -19,6 +19,16 @@
 			'scaleArcRadius': 36,
 			'pointerLength': 24
 		});
+		$('meter.type6').dialify({ 'drawSpindle': false });
+		$('meter.type7').dialify({
+			'dialFaceColor': 'rgb(255, 255, 157)',
+			'dialOutlineColor': 'rgb(136, 139, 31)',
+			'scaleRangeColor': 'rgb(205, 255, 155)',
+			'pointerColor': 'rgb(0, 119, 145)',
+			'spindleColor': 'rgb(194, 244, 255)',
+			'spindleOutlineColor': 'rgb(0, 119, 145)'
+		});
+		$('meter.type8').dialify();
 	});
 	</script>
 </head>
@@ -27,31 +37,58 @@
 		<h1><code>&lt;meter&gt;</code> Elements as Canvases</h1>
 	</header>
 	
+	Defaults:<br />
 	<meter class="type1" value="0" min="0" max="100"></meter>
 	<meter class="type1" value="50" min="0" max="100"></meter>
 	<meter class="type1" value="100" min="0" max="100"></meter>
 	
 	<hr />
 	
+	No dial face:<br />
 	<meter class="type2" value="0" min="0" max="10"></meter>
 	<meter class="type2" value="5" min="0" max="10"></meter>
 	<meter class="type2" value="10" min="0" max="10"></meter>
 	
 	<hr />
 	
+	Custom canvas size:<br />
 	<meter class="type3" value="0" min="0" max="12"></meter>
 	<meter class="type3" value="6" min="0" max="12"></meter>
 	<meter class="type3" value="12" min="0" max="12"></meter>
 	
 	<hr />
 	
+	Custom min/max angles:<br />
 	<meter class="type4" value="5" min="5" max="15"></meter>
 	<meter class="type4" value="10" min="5" max="15"></meter>
 	<meter class="type4" value="15" min="5" max="15"></meter>
 	
 	<hr />
 	
+	Custom pointer rotation point, pointer length, scale arc radius:<br />
 	<meter class="type5" value="0" min="0" max="10"></meter>
 	<meter class="type5" value="5" min="0" max="10"></meter>
-	<meter class="type5" value="10" min="0" max="10"></meter></body>
+	<meter class="type5" value="10" min="0" max="10"></meter>
+	
+	<hr />
+	
+	No spindle (middle thing):<br />
+	<meter class="type6" value="0" min="0" max="10"></meter>
+	<meter class="type6" value="5" min="0" max="10"></meter>
+	<meter class="type6" value="10" min="0" max="10"></meter>
+	
+	<hr />
+	
+	Custom colours:<br />
+	<meter class="type7" value="0" min="0" max="10"></meter>
+	<meter class="type7" value="5" min="0" max="10"></meter>
+	<meter class="type7" value="10" min="0" max="10"></meter>
+	
+	<hr />
+	
+	Render using custom image:<br />
+	<meter class="type8" value="0" min="0" max="10"></meter>
+	<meter class="type8" value="5" min="0" max="10"></meter>
+	<meter class="type8" value="10" min="0" max="10"></meter>
+</body>
 </html>
