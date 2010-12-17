@@ -8,7 +8,9 @@
 	<script src="jquery.dialify.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(function(){
-		$('meter').dialify();
+		$('meter.type1').dialify();
+		$('meter.type2').dialify({ 'drawDialFace': false });
+		$('meter.type3').dialify({ 'size': 180 });
 	});
 	</script>
 </head>
@@ -17,21 +19,21 @@
 		<h1><code>&lt;meter&gt;</code> Elements as Canvases</h1>
 	</header>
 	
-	<meter value="0" min="0" max="100"></meter>
-	<meter value="50" min="0" max="100"></meter>
-	<meter value="100" min="0" max="100"></meter>
+	<meter class="type1" value="0" min="0" max="100"></meter>
+	<meter class="type1" value="50" min="0" max="100"></meter>
+	<meter class="type1" value="100" min="0" max="100"></meter>
 	
 	<hr />
 	
-	<meter value="0" min="0" max="10"></meter>
-	<meter value="5" min="0" max="10"></meter>
-	<meter value="10" min="0" max="10"></meter>
+	<meter class="type2" value="0" min="0" max="10"></meter>
+	<meter class="type2" value="5" min="0" max="10"></meter>
+	<meter class="type2" value="10" min="0" max="10"></meter>
 	
 	<hr />
 	
-	<meter value="0" min="0" max="12"></meter>
-	<meter value="6" min="0" max="12"></meter>
-	<meter value="12" min="0" max="12"></meter>
+	<meter class="type3" value="0" min="0" max="12"></meter>
+	<meter class="type3" value="6" min="0" max="12"></meter>
+	<meter class="type3" value="12" min="0" max="12"></meter>
 	
 	<hr />
 	

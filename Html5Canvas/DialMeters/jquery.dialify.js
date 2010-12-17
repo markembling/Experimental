@@ -3,8 +3,10 @@
 	
 		// sort out some defaults
 		var settings = {
-			'size': 100,
-			'class': 'meter'
+			'size': 100,							// Size (width and height) to draw the canas
+			'class': 'meter',						// Class(es) to add to the canvas
+			'drawDialFace': 'true',					// Should the dial face (and scale area) be drawn?
+			'pointerWidth': 4						// Thickness of pointer
 		};
 		
 		// merge options and defaults
@@ -34,30 +36,34 @@
 			// Drawing
 			var context = canvas.getContext("2d");
 			
-			// Draw face
-			context.fillStyle = "rgb(223, 249, 255)";
-			context.strokeStyle = "rgb(0, 0, 0)";
-			context.beginPath();
-			context.arc(settings['size'] / 2, settings['size'] / 2, (settings['size'] - 2) / 2, Math.PI * 2, false);
-			context.closePath();
-			context.fill();
-			context.stroke();
-			
-			// Draw area scale arc thing
 			var scaleWidth = (settings['size'] / 8);
-			context.strokeStyle = "rgb(102, 203, 255)";
-			context.lineWidth = scaleWidth
-			context.beginPath();
-			context.arc(
-				settings['size'] / 2, 
-				settings['size'] / 2, 
-				(settings['size'] - (scaleWidth * 1.5)) / 2,  // radius
-				Math.PI - (Math.PI / 4),
-				(Math.PI * 2.25), 
-				false
-			);
-			context.stroke();
-			context.closePath();
+			var scaleDistanceFromEdge = 1 + (scaleWidth * 2);
+			if (settings['drawDialFace']) {
+				// Draw face
+				context.fillStyle = "rgb(223, 249, 255)";
+				context.strokeStyle = "rgb(0, 0, 0)";
+				context.lineWidth = 1;
+				context.beginPath();
+				context.arc(settings['size'] / 2, settings['size'] / 2, ((settings['size'] - 2) / 2) - 1, Math.PI * 2, false);
+				context.closePath();
+				context.fill();
+				context.stroke();
+			
+				// Draw area scale arc thing
+				context.strokeStyle = "rgb(102, 203, 255)";
+				context.lineWidth = scaleWidth;
+				context.beginPath();
+				context.arc(
+					settings['size'] / 2, 
+					settings['size'] / 2, 
+					(settings['size'] - scaleDistanceFromEdge) / 2,  // radius
+					Math.PI - (Math.PI / 4),
+					(Math.PI * 2.25), 
+					false
+				);
+				context.stroke();
+				context.closePath();
+			}
 			
 			// Rotate and draw needle
 			var minValueRotationAngle = 0 - (Math.PI * 1.25);
@@ -71,7 +77,7 @@
 			context.lineWidth = 4;
 			context.beginPath()
 			context.moveTo(0, 0);  // Get into middle
-			context.lineTo((settings['size'] / 2) - (scaleWidth / 2), 0);
+			context.lineTo((settings['size'] / 2) - (scaleWidth), 0);
 			context.closePath();
 			context.stroke();
 			
