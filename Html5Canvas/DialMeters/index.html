@@ -28,7 +28,11 @@
 			'spindleColor': 'rgb(194, 244, 255)',
 			'spindleOutlineColor': 'rgb(0, 119, 145)'
 		});
-		$('meter.type8').dialify({ 'image': 'meter.png' });
+		$('meter.type8').dialify({ 
+			'image': 'meter.png',
+			'pointerRange': { 'min': 0 - (Math.PI * 0.7), 'max': 0 - (Math.PI * 0.3) },
+			'pointerRotationPoint': { 'y':75 }
+		});
 	});
 	</script>
 </head>

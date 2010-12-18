@@ -37,125 +37,156 @@
 		if (options) {
 			$.extend(settings, options);
 		}
-	
-		return this.each(function(){
 		
-			// Get meter attributes
-			var min = $(this).attr("min");
-			var max = $(this).attr("max");
-			var value = $(this).attr("value");
-			
-			var smallestDimension = 
-				(settings['width'] > settings['height']) ? 
-				settings['height'] : 
-				settings['width'];
+		// Load in image if we need to
 		
-			// Create canvas
-			canvas = document.createElement('canvas');
-			canvas.setAttribute('width', settings['width']);
-			canvas.setAttribute('height', settings['height']);
-			canvas.className = settings['class'];
-			
-			// Insert canvas and remove meter.
-			$(this).before(canvas)
-			       .hide();
-			
-			// Drawing
-			var context = canvas.getContext("2d");
-			
-			// Load in image if we need to
+		if (settings['image']) {
+			var elements = this;
 			var img = new Image();
+			img.onload = function(){ process(elements, img); }
 			img.src = settings['image'];
-			// Erm... going to have to wait for it to load. Need big refactor.
+		} else {
+			process(this);
+		}
+		
+		
+		
+		
+		
+		
+		
+		function process(elements, img) {
+	
+			return elements.each(function(){
+		
+				// Get meter attributes
+				var min = $(this).attr("min");
+				var max = $(this).attr("max");
+				var value = $(this).attr("value");
+			
+				var smallestDimension = 
+					(settings['width'] > settings['height']) ? 
+					settings['height'] : 
+					settings['width'];
+		
+				// Create canvas
+				canvas = document.createElement('canvas');
+				canvas.setAttribute('width', settings['width']);
+				canvas.setAttribute('height', settings['height']);
+				canvas.className = settings['class'];
+			
+				// Insert canvas and remove meter.
+				$(this).before(canvas)
+				       .hide();
+			
+				// Drawing
+				var context = canvas.getContext("2d");
 			
 			
-			// Set min and max rotation angle
-			var minValueRotationAngle = 
-				_ifNull(settings['pointerRange']['min'], (0 - (Math.PI * 1.25)));
-			var maxValueRotationAngle = 
-				_ifNull(settings['pointerRange']['max'], (Math.PI * 0.25));
+				// Set min and max rotation angle
+				var minValueRotationAngle = 
+					_ifNull(settings['pointerRange']['min'], (0 - (Math.PI * 1.25)));
+				var maxValueRotationAngle = 
+					_ifNull(settings['pointerRange']['max'], (Math.PI * 0.25));
 				
-			// Set pointer rotation point
-			var pointerRotationPointX = 
-				_ifNull(settings['pointerRotationPoint']['x'], settings['width'] / 2);
-			var pointerRotationPointY = 
-				_ifNull(settings['pointerRotationPoint']['y'], settings['height'] / 2);
+				// Set pointer rotation point
+				var pointerRotationPointX = 
+					_ifNull(settings['pointerRotationPoint']['x'], settings['width'] / 2);
+				var pointerRotationPointY = 
+					_ifNull(settings['pointerRotationPoint']['y'], settings['height'] / 2);
 			
-			var scaleWidth = (smallestDimension / 8);
-			var scaleDistanceFromEdge = 1 + (scaleWidth * 2);
-			if (settings['drawDialFace'] && !settings['image']) {
-				// Draw face
-				context.fillStyle = settings['dialFaceColor'];
-				context.strokeStyle = settings['dialOutlineColor'];
-				context.lineWidth = 1;
-				context.beginPath();
-				context.arc(settings['width'] / 2, settings['height'] / 2, ((smallestDimension - 2) / 2) - 1, Math.PI * 2, false);
-				context.closePath();
-				context.fill();
-				context.stroke();
-			} else {
-				context.drawImage()
-			}
+				var scaleWidth = (smallestDimension / 8);
+				var scaleDistanceFromEdge = 1 + (scaleWidth * 2);
+				if (settings['drawDialFace'] && !settings['image']) {
+					// Draw face
+					context.fillStyle = settings['dialFaceColor'];
+					context.strokeStyle = settings['dialOutlineColor'];
+					context.lineWidth = 1;
+					context.beginPath();
+					context.arc(settings['width'] / 2, settings['height'] / 2, ((smallestDimension - 2) / 2) - 1, Math.PI * 2, false);
+					context.closePath();
+					context.fill();
+					context.stroke();
+				} else if (settings['image']) {
+					context.drawImage(img, 0, 0, settings['width'], settings['height'], 0, 0, settings['width'], settings['height']);
+				}
 			
-			// Draw area scale arc thing
-			var scaleArcRadius = settings['scaleArcRadius'];
-			if (scaleArcRadius == null) {
-				scaleArcRadius = (smallestDimension - scaleDistanceFromEdge) / 2;
-			} else {
-				scaleArcRadius -= (scaleWidth / 2);
-			}
+				// Draw area scale arc thing
+				var scaleArcRadius = settings['scaleArcRadius'];
+				if (scaleArcRadius == null) {
+					scaleArcRadius = (smallestDimension - scaleDistanceFromEdge) / 2;
+				} else {
+					scaleArcRadius -= (scaleWidth / 2);
+				}
 			
-			context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
+				context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
 			
-			if (settings['drawDialFace'] && !settings['image']) {
-				context.strokeStyle = settings['scaleRangeColor'];
-				context.lineWidth = scaleWidth;
-				context.beginPath();
-				context.arc(
-					0,//settings['size'] / 2, 
-					0,//settings['size'] / 2, 
-					//(settings['size'] - scaleDistanceFromEdge) / 2,  // radius
-					scaleArcRadius,
-					minValueRotationAngle, 
-					maxValueRotationAngle,
-					false
-				);
-				context.stroke();
-				context.closePath();
-			}
+				if (settings['drawDialFace'] && !settings['image']) {
+					context.strokeStyle = settings['scaleRangeColor'];
+					context.lineWidth = scaleWidth;
+					context.beginPath();
+					context.arc(
+						0,//settings['size'] / 2, 
+						0,//settings['size'] / 2, 
+						//(settings['size'] - scaleDistanceFromEdge) / 2,  // radius
+						scaleArcRadius,
+						minValueRotationAngle, 
+						maxValueRotationAngle,
+						false
+					);
+					context.stroke();
+					context.closePath();
+				}
 			
-			// Calculate pointer length
-			var pointerLength = _ifNull(settings['pointerLength'], scaleArcRadius);
+				// Calculate pointer length
+				var pointerLength = _ifNull(settings['pointerLength'], scaleArcRadius);
 			
-			// Rotate for needle
-			var currentValueRotationAngle = ((value - min) * (maxValueRotationAngle - minValueRotationAngle) / (max - min) + minValueRotationAngle);  // thanks to @vkornov for giving me this formula
+				// Rotate for needle
+				var currentValueRotationAngle = ((value - min) * (maxValueRotationAngle - minValueRotationAngle) / (max - min) + minValueRotationAngle);  // thanks to @vkornov for giving me this formula
 				
-			//context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
-			context.rotate(currentValueRotationAngle);  // Rotate by the appropriate angle
+				//context.translate(pointerRotationPointX, pointerRotationPointY);  // Move origin to rotation point
+				context.rotate(currentValueRotationAngle);  // Rotate by the appropriate angle
 			
-			if (!settings['image']) {
-				context.strokeStyle = settings['pointerColor'];
-				context.lineJoin = "round";
-				context.lineWidth = 4;
-				context.beginPath()
-				context.moveTo(0, 0);  // Get into middle
-				context.lineTo(pointerLength, 0);
-				context.closePath();
-				context.stroke();
-			}
+				if (!settings['image']) {
+					context.strokeStyle = settings['pointerColor'];
+					context.lineJoin = "round";
+					context.lineWidth = 4;
+					context.beginPath()
+					context.moveTo(0, 0);  // Get into middle
+					context.lineTo(pointerLength, 0);
+					context.closePath();
+					context.stroke();
+				} else {
+					// image needle
+					context.drawImage(img, 
+						0, settings['height'],  // sx, sy
+						(settings['width'] * 2), settings['height'],  // sh, sh
+						0-settings['width'], 0-(settings['height']/2),  //dx, dy
+						(settings['width'] * 2), settings['height']  // dw, dh
+					);
+				}
 			
-			// Draw middle bit
-			if (settings['drawSpindle'] && !settings['image']) {
-				context.fillStyle = settings['spindleColor'];
-				context.strokeStyle = settings['spindleOutlineColor'];
-				context.lineWidth = 1;
-				context.beginPath();
-				context.arc(0, 0, (smallestDimension) / 12, Math.PI * 2, false);
-				context.closePath();
-				context.fill();
-				context.stroke();
-			}
-		});
+				// Draw middle bit
+				if (settings['drawSpindle'] && !settings['image']) {
+					context.fillStyle = settings['spindleColor'];
+					context.strokeStyle = settings['spindleOutlineColor'];
+					context.lineWidth = 1;
+					context.beginPath();
+					context.arc(0, 0, (smallestDimension) / 12, Math.PI * 2, false);
+					context.closePath();
+					context.fill();
+					context.stroke();
+				} else if (settings['image']) {
+					// reset all transformations
+					context.rotate(0-currentValueRotationAngle);
+					context.translate(0-pointerRotationPointX, 0-pointerRotationPointY); 
+					
+					// draw overlay
+					context.drawImage(img, settings['width'], 0, settings['width'], settings['height'], 0, 0, settings['width'], settings['height']);
+				}
+			});
+		
+		}
 	
 	
 		// Helper methods
