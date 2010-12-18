@@ -4,95 +4,143 @@
 	<meta charset="utf-8" />
 	<title>&lt;meter&gt; Elements as Canvases</title>
 	
+	<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="standard.css" type="text/css" />
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
 	<script src="jquery.dialify.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(function(){
-		$('meter.type1').dialify();
-		$('meter.type2').dialify({ 'drawDialFace': false });
-		$('meter.type3').dialify({ 'width': 180 });
-		$('meter.type4').dialify({
+		$('meter.demo1').dialify();
+		$('meter.demo2').dialify({ 'drawDialFace': false });
+		$('meter.demo3').dialify({ 'width': 180, 'height': 120 });
+		$('meter.demo4').dialify({
 			'pointerRange': { 'min': 0 - Math.PI, 'max': 0 }
 		});
-		$('meter.type5').dialify({
+		$('meter.demo5').dialify({
 			'pointerRotationPoint': { 'y': 60 },
 			'scaleArcRadius': 36,
 			'pointerLength': 24
 		});
-		$('meter.type6').dialify({ 'drawSpindle': false });
-		$('meter.type7').dialify({
-			'dialFaceColor': 'rgb(255, 255, 157)',
-			'dialOutlineColor': 'rgb(136, 139, 31)',
-			'scaleRangeColor': 'rgb(205, 255, 155)',
-			'pointerColor': 'rgb(0, 119, 145)',
-			'spindleColor': 'rgb(194, 244, 255)',
-			'spindleOutlineColor': 'rgb(0, 119, 145)'
+		$('meter.demo6').dialify({ 
+			'class': 'dialify-demo6-custom-class',
+			'drawSpindle': false 
 		});
-		$('meter.type8').dialify({ 
+		$('meter.demo7').dialify({
+			'dialFaceColor': 'rgb(125, 172, 191)',
+			'dialOutlineColor': 'rgb(59, 86, 97)',
+			'scaleRangeColor': 'rgb(145, 195, 217)',
+			'pointerColor': 'rgb(255, 255, 255)',
+			'spindleColor': 'rgb(255, 255, 255)',
+			'spindleOutlineColor': 'rgb(59, 86, 97)'
+		});
+		$('meter.demo8').dialify({ 
 			'image': 'meter.png',
-			'pointerRange': { 'min': 0 - (Math.PI * 0.7), 'max': 0 - (Math.PI * 0.3) },
-			'pointerRotationPoint': { 'y':75 }
+			/*'pointerRange': { 'min': 0 - (Math.PI * 0.7), 'max': 0 - (Math.PI * 0.3) },
+			'pointerRotationPoint': { 'y': 78 }*/
+			'width': 120,
+			'height': 90,
+			'pointerRange': { 'min': 0 - (Math.PI * 0.609), 'max': 0 - (Math.PI * 0.382) },
+			'pointerRotationPoint': { 'y': 130 }
 		});
 	});
 	</script>
 </head>
 <body>
 	<header>
-		<h1><code>&lt;meter&gt;</code> Elements as Canvases</h1>
+		<h1>Meter Elements as Canvas-Generated Dials</h1>
 	</header>
 	
-	Defaults:<br />
-	<meter class="type1" value="0" min="0" max="100"></meter>
-	<meter class="type1" value="50" min="0" max="100"></meter>
-	<meter class="type1" value="100" min="0" max="100"></meter>
+	<section id="about">
+		<header>
+			<h1>About</h1>
+			<p>One of the new semantic elements given to us by HTML5 is the <code>&lt;meter&gt;</code> element. This 
+			enables us to represent a value in between a specified minimum and maximum. Unfortunately as yet, not many 
+			browsers support it, and those which do render a simple filled-bar. For some scenarios, this might be exactly 
+			what is required, but in other cases it might be desirable to have a more graphic representation.</p>
+			<p>This began as an experiment to see it were possible and feasible to replace these meter elements with a 
+			representation of a dial or gauge, much as you might find on a car's dashboard. As it turns out, the answer
+			is a resounding yes. Not only is it possible, it seems an ideal thing to build into a <a href="http://jquery.com/">jQuery</a> 
+			plugin.</p>
+			<p>This page is a result of my plugin-building efforts. At the moment it is still very much a work-in-progress, but as you
+			can see from the demos, it does function and provides a bunch of different configuration and customisation options, including
+			the ability to use an image to render a completely custom dial in addition the simple default generated one.</p>
+			<p>In the near future, I will be making the initial releases of the plugin to the world (which I will be sure to 
+			<a href="http://markembling.info">blog</a> about). Until then, this page can serve as a taster for what is to come whilst I 
+			tidy up the code for human consumption.</p>
+			<p>Please see the source for this page to see how each of the demos is created. When I release the plugin, I will also
+			write some documentation (with a load of examples).</p>
+		</header>
+	</section>
 	
-	<hr />
+	<section id="demos">
+		<header>
+			<h1>Demos</h1>
+		</header>
+		
+		<h2>Defaults</h2>
+		<meter class="demo1" value="0" min="0" max="100"></meter>
+		<meter class="demo1" value="50" min="0" max="100"></meter>
+		<meter class="demo1" value="100" min="0" max="100"></meter>
+
+		<h2>No Dial Face</h2>
+		<meter class="demo2" value="0" min="0" max="10"></meter>
+		<meter class="demo2" value="5" min="0" max="10"></meter>
+		<meter class="demo2" value="10" min="0" max="10"></meter>
+
+		<h2>Custom Canvas Size</h2>
+		<meter class="demo3" value="0" min="0" max="12"></meter>
+		<meter class="demo3" value="6" min="0" max="12"></meter>
+		<meter class="demo3" value="12" min="0" max="12"></meter>
+
+		<h2>Custom Min/Max Angles</h2>
+		<meter class="demo4" value="5" min="5" max="15"></meter>
+		<meter class="demo4" value="10" min="5" max="15"></meter>
+		<meter class="demo4" value="15" min="5" max="15"></meter>
+
+		<h2>Custom Pointer Rotation Point, Pointer Length, Scale Arc Radius</h2>
+		<meter class="demo5" value="0" min="0" max="10"></meter>
+		<meter class="demo5" value="5" min="0" max="10"></meter>
+		<meter class="demo5" value="10" min="0" max="10"></meter>
+
+		<h2>No Spindle, Custom Class Applied to Canvas Elements</h2>
+		<meter class="demo6" value="0" min="0" max="10"></meter>
+		<meter class="demo6" value="5" min="0" max="10"></meter>
+		<meter class="demo6" value="10" min="0" max="10"></meter>
+
+		<h2>Custom Colours</h2>
+		<meter class="demo7" value="0" min="0" max="10"></meter>
+		<meter class="demo7" value="5" min="0" max="10"></meter>
+		<meter class="demo7" value="10" min="0" max="10"></meter>
+
+		<h2>Render Using Custom Image</h2>
+		<meter class="demo8" value="0" min="0" max="10"></meter>
+		<meter class="demo8" value="5" min="0" max="10"></meter>
+		<meter class="demo8" value="10" min="0" max="10"></meter>
+	</section>
 	
-	No dial face:<br />
-	<meter class="type2" value="0" min="0" max="10"></meter>
-	<meter class="type2" value="5" min="0" max="10"></meter>
-	<meter class="type2" value="10" min="0" max="10"></meter>
+	<footer>		
+		<p>
+			<i>by</i> <a href="http://markembling.info/" rel="author">Mark Embling</a>
+			<span class="separator">✽</span>
+			<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="markembling">Tweet</a>
+		</p>
+	</footer>
 	
-	<hr />
-	
-	Custom canvas size:<br />
-	<meter class="type3" value="0" min="0" max="12"></meter>
-	<meter class="type3" value="6" min="0" max="12"></meter>
-	<meter class="type3" value="12" min="0" max="12"></meter>
-	
-	<hr />
-	
-	Custom min/max angles:<br />
-	<meter class="type4" value="5" min="5" max="15"></meter>
-	<meter class="type4" value="10" min="5" max="15"></meter>
-	<meter class="type4" value="15" min="5" max="15"></meter>
-	
-	<hr />
-	
-	Custom pointer rotation point, pointer length, scale arc radius:<br />
-	<meter class="type5" value="0" min="0" max="10"></meter>
-	<meter class="type5" value="5" min="0" max="10"></meter>
-	<meter class="type5" value="10" min="0" max="10"></meter>
-	
-	<hr />
-	
-	No spindle (middle thing):<br />
-	<meter class="type6" value="0" min="0" max="10"></meter>
-	<meter class="type6" value="5" min="0" max="10"></meter>
-	<meter class="type6" value="10" min="0" max="10"></meter>
-	
-	<hr />
-	
-	Custom colours:<br />
-	<meter class="type7" value="0" min="0" max="10"></meter>
-	<meter class="type7" value="5" min="0" max="10"></meter>
-	<meter class="type7" value="10" min="0" max="10"></meter>
-	
-	<hr />
-	
-	Render using custom image:<br />
-	<meter class="type8" value="0" min="0" max="10"></meter>
-	<meter class="type8" value="5" min="0" max="10"></meter>
-	<meter class="type8" value="10" min="0" max="10"></meter>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<script type="text/javascript">
+	// Google Analytics - only log if viewing from experiments subdomain (not locally or anything)
+	if (window.location.hostname == 'experiments.markembling.info') {
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11394579-2']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	}
+	</script>
 </body>
 </html>

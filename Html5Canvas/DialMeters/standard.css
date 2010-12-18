@@ -1,0 +1,82 @@
+html, body {
+	background-color: rgb(246, 245, 237);
+	color: rgb(57, 57, 57);
+}
+
+body {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0;
+	font-family: Cambria, Georgia, "Times New Roman", serif;
+	font-size: 90%;
+}
+
+::selection {
+	background: rgb(125, 172, 191);
+	color: rgb(255, 255, 255);
+	-webkit-text-shadow: none !important;
+	text-shadow: none !important;
+}
+
+header, section, nav, footer { 
+	display: block;
+	margin: 0; 
+	padding: 0; 
+}
+
+/* Links */
+a:link, a:active, a:visited {
+	color: rgb(57, 57, 57);
+	text-decoration: underline;
+}
+a:hover, a:focus {
+	color: rgb(57, 57, 57);
+}
+
+header h1 { 
+	font-family: Lobster, Calibri, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	margin: 1em 0 0 0;
+	padding: 0;
+	text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+	text-align: center;
+}
+section header h1 { 
+	font-size: 1.6em;
+	text-align: left;
+}
+h2 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+section {
+	float: left;
+	margin: 0 10px;
+	padding: 0;
+	line-height: 1.8;
+}
+section#about {
+	width: 300px;
+	text-align: justify;
+}
+section#demos {
+	width: 600px;
+	margin-left: 30px;
+}
+
+footer {
+	clear: both;
+	text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+	text-align: right;
+}
+
+footer {
+	font-size: 0.9em;
+	width: 960px;
+	padding: 0.5em 0;
+}
+footer .separator { margin: 0 0.4em; }
+footer .twitter-share-button {
+	margin-bottom: -5px;
+}

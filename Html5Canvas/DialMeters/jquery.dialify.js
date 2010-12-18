@@ -38,8 +38,9 @@
 			$.extend(settings, options);
 		}
 		
-		// Load in image if we need to
+		var toReturn = null;  // put the elements to return in here.
 		
+		// Load in image if we need to, and go ahead
 		if (settings['image']) {
 			var elements = this;
 			var img = new Image();
@@ -49,15 +50,12 @@
 			process(this);
 		}
 		
-		
-		
-		
-		
+		return toReturn;
 		
 		
 		function process(elements, img) {
 	
-			return elements.each(function(){
+			toReturn = elements.each(function(){
 		
 				// Get meter attributes
 				var min = $(this).attr("min");
@@ -66,6 +64,10 @@
 			
 				var smallestDimension = 
 					(settings['width'] > settings['height']) ? 
+					settings['height'] : 
+					settings['width'];
+				var largestDimension = 
+					(settings['width'] < settings['height']) ? 
 					settings['height'] : 
 					settings['width'];
 		
@@ -159,10 +161,11 @@
 				} else {
 					// image needle
 					context.drawImage(img, 
-						0, settings['height'],  // sx, sy
-						(settings['width'] * 2), settings['height'],  // sh, sh
-						0-settings['width'], 0-(settings['height']/2),  //dx, dy
-						(settings['width'] * 2), settings['height']  // dw, dh
+						0, settings['height'] + 1,  // sx, sy
+						//(settings['width'] * 2), settings['height'],  // sh, sh
+						(largestDimension * 2), largestDimension,  // sh, sh
+						0-largestDimension, 0-(largestDimension/2),  //dx, dy
+						(largestDimension * 2), largestDimension  // dw, dh
 					);
 				}
 			
