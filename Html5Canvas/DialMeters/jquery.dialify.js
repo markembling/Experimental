@@ -105,7 +105,14 @@
 					context.strokeStyle = settings['dialOutlineColor'];
 					context.lineWidth = 1;
 					context.beginPath();
-					context.arc(settings['width'] / 2, settings['height'] / 2, ((smallestDimension - 2) / 2) - 1, Math.PI * 2, false);
+					context.arc(
+						settings['width'] / 2, 
+						settings['height'] / 2, 
+						((smallestDimension - 2) / 2) - 1, 
+						0,
+						Math.PI * 2, 
+						false
+					);
 					context.closePath();
 					context.fill();
 					context.stroke();
@@ -175,7 +182,7 @@
 					context.strokeStyle = settings['spindleOutlineColor'];
 					context.lineWidth = 1;
 					context.beginPath();
-					context.arc(0, 0, (smallestDimension) / 12, Math.PI * 2, false);
+					context.arc(0, 0, (smallestDimension) / 12, 0, Math.PI * 2, false);
 					context.closePath();
 					context.fill();
 					context.stroke();
