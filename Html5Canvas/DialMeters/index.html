@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>&lt;meter&gt; Elements as Canvases</title>
+	<title>Dialify: Meter Elements as Canvas-Generated Dials</title>
 	
 	<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="standard.css" type="text/css" />
@@ -13,7 +13,7 @@
 	$(function(){
 		$('meter.demo1').dialify();
 		$('meter.demo2').dialify({ 'drawDialFace': false });
-		$('meter.demo3').dialify({ 'width': 180, 'height': 120 });
+		$('meter.demo3').dialify({ 'width': 140, 'height': 120 });
 		$('meter.demo4').dialify({
 			'pointerRange': { 'min': 0 - Math.PI, 'max': 0 }
 		});
@@ -36,11 +36,12 @@
 		});
 		$('meter.demo8').dialify({ 
 			'image': 'meter.png',
-			/*'pointerRange': { 'min': 0 - (Math.PI * 0.7), 'max': 0 - (Math.PI * 0.3) },
-			'pointerRotationPoint': { 'y': 78 }*/
 			'width': 120,
 			'height': 90,
-			'pointerRange': { 'min': 0 - (Math.PI * 0.609), 'max': 0 - (Math.PI * 0.382) },
+			'pointerRange': { 
+				'min': 0 - (Math.PI * 0.609), 
+				'max': 0 - (Math.PI * 0.382) 
+			},
 			'pointerRotationPoint': { 'y': 130 }
 		});
 	});
@@ -48,7 +49,7 @@
 </head>
 <body>
 	<header>
-		<h1>Meter Elements as Canvas-Generated Dials</h1>
+		<h1>Dialify: Meter Elements as Canvas-Generated Dials</h1>
 	</header>
 	
 	<section id="about">
@@ -65,9 +66,9 @@
 			<p>This page is a result of my plugin-building efforts. At the moment it is still very much a work-in-progress, but as you
 			can see from the demos, it does function and provides a bunch of different configuration and customisation options, including
 			the ability to use an image to render a completely custom dial in addition the simple default generated one.</p>
-			<p>In the near future, I will be making the initial releases of the plugin to the world (which I will be sure to 
+			<p><strong>In the near future, I will be making the initial release of the plugin to the world (which I will be sure to 
 			<a href="http://markembling.info">blog</a> about). Until then, this page can serve as a taster for what is to come whilst I 
-			tidy up the code for human consumption.</p>
+			tidy up the code for human consumption.</strong></p>
 			<p>Please see the source for this page to see how each of the demos is created. When I release the plugin, I will also
 			write some documentation (with a load of examples).</p>
 		</header>
@@ -79,44 +80,151 @@
 		</header>
 		
 		<h2>Defaults</h2>
-		<meter class="demo1" value="0" min="0" max="100"></meter>
-		<meter class="demo1" value="50" min="0" max="100"></meter>
-		<meter class="demo1" value="100" min="0" max="100"></meter>
+		<p>
+			<meter class="demo1" value="0" min="0" max="100"></meter>
+			<meter class="demo1" value="25" min="0" max="100"></meter>
+			<meter class="demo1" value="50" min="0" max="100"></meter>
+			<meter class="demo1" value="100" min="0" max="100"></meter>
+		</p>
+		<div id="demo1-code">
+			<pre><code>&lt;meter class="demo1" value="0" min="0" max="100"&gt;&lt;/meter&gt;
+&lt;meter class="demo1" value="25" min="0" max="100"&gt;&lt;/meter&gt;
+&lt;meter class="demo1" value="50" min="0" max="100"&gt;&lt;/meter&gt;
+&lt;meter class="demo1" value="100" min="0" max="100"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo1').dialify();</code></pre>
+		</div>
 
 		<h2>No Dial Face</h2>
-		<meter class="demo2" value="0" min="0" max="10"></meter>
-		<meter class="demo2" value="5" min="0" max="10"></meter>
-		<meter class="demo2" value="10" min="0" max="10"></meter>
+		<p>
+			<meter class="demo2" value="0" min="0" max="10"></meter>
+			<meter class="demo2" value="5" min="0" max="10"></meter>
+			<meter class="demo2" value="8" min="0" max="10"></meter>
+			<meter class="demo2" value="10" min="0" max="10"></meter>
+		</p>
+		<div id="demo2-code">
+			<pre><code>&lt;meter class="demo2" value="0" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo2" value="5" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo2" value="8" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo2" value="10" min="0" max="10"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo2').dialify({ 'drawDialFace': false });</code></pre>
+		</div>
 
 		<h2>Custom Canvas Size</h2>
-		<meter class="demo3" value="0" min="0" max="12"></meter>
-		<meter class="demo3" value="6" min="0" max="12"></meter>
-		<meter class="demo3" value="12" min="0" max="12"></meter>
+		<p>
+			<meter class="demo3" value="0" min="0" max="12"></meter>
+			<meter class="demo3" value="2" min="0" max="12"></meter>
+			<meter class="demo3" value="6" min="0" max="12"></meter>
+			<meter class="demo3" value="12" min="0" max="12"></meter>
+		</p>
+		<div id="demo3-code">
+			<pre><code>&lt;meter class="demo3" value="0" min="0" max="12">&lt;/meter&gt;
+&lt;meter class="demo3" value="2" min="0" max="12"&gt;&lt;/meter&gt;
+&lt;meter class="demo3" value="6" min="0" max="12"&gt;&lt;/meter&gt;
+&lt;meter class="demo3" value="12" min="0" max="12"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo3').dialify({ 'width': 140, 'height': 120 });</code></pre>
+		</div>
 
 		<h2>Custom Min/Max Angles</h2>
-		<meter class="demo4" value="5" min="5" max="15"></meter>
-		<meter class="demo4" value="10" min="5" max="15"></meter>
-		<meter class="demo4" value="15" min="5" max="15"></meter>
+		<p>
+			<meter class="demo4" value="5" min="5" max="15"></meter>
+			<meter class="demo4" value="10" min="5" max="15"></meter>
+			<meter class="demo4" value="12" min="5" max="15"></meter>
+			<meter class="demo4" value="15" min="5" max="15"></meter>
+		</p>
+		<div id="demo4-code">
+			<pre><code>&lt;meter class="demo4" value="5" min="5" max="15"&gt;&lt;/meter&gt;
+&lt;meter class="demo4" value="10" min="5" max="15"&gt;&lt;/meter&gt;
+&lt;meter class="demo4" value="12" min="5" max="15"&gt;&lt;/meter&gt;
+&lt;meter class="demo4" value="15" min="5" max="15"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo4').dialify({
+    'pointerRange': { 'min': 0 - Math.PI, 'max': 0 }
+});</code></pre>
+		</div>
 
 		<h2>Custom Pointer Rotation Point, Pointer Length, Scale Arc Radius</h2>
-		<meter class="demo5" value="0" min="0" max="10"></meter>
-		<meter class="demo5" value="5" min="0" max="10"></meter>
-		<meter class="demo5" value="10" min="0" max="10"></meter>
+		<p>
+			<meter class="demo5" value="0" min="0" max="10"></meter>
+			<meter class="demo5" value="2" min="0" max="10"></meter>
+			<meter class="demo5" value="5" min="0" max="10"></meter>
+			<meter class="demo5" value="10" min="0" max="10"></meter>
+		</p>
+		<div id="demo4-code">
+			<pre><code>&lt;meter class="demo5" value="0" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo5" value="2" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo5" value="5" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo5" value="10" min="0" max="10"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo5').dialify({
+    'pointerRotationPoint': { 'y': 60 },
+    'scaleArcRadius': 36,
+    'pointerLength': 24
+});</code></pre>
+		</div>
 
 		<h2>No Spindle, Custom Class Applied to Canvas Elements</h2>
-		<meter class="demo6" value="0" min="0" max="10"></meter>
-		<meter class="demo6" value="5" min="0" max="10"></meter>
-		<meter class="demo6" value="10" min="0" max="10"></meter>
+		<p>
+			<meter class="demo6" value="0" min="0" max="10"></meter>
+			<meter class="demo6" value="5" min="0" max="10"></meter>
+			<meter class="demo6" value="9" min="0" max="10"></meter>
+			<meter class="demo6" value="10" min="0" max="10"></meter>
+		</p>
+		<div id="demo6-code">
+			<pre><code>&lt;meter class="demo6" value="0" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo6" value="5" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo6" value="9" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo6" value="10" min="0" max="10"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo6').dialify({ 
+    'class': 'dialify-demo6-custom-class',
+    'drawSpindle': false 
+});</code></pre>
+		</div>
 
 		<h2>Custom Colours</h2>
-		<meter class="demo7" value="0" min="0" max="10"></meter>
-		<meter class="demo7" value="5" min="0" max="10"></meter>
-		<meter class="demo7" value="10" min="0" max="10"></meter>
+		<p>
+			<meter class="demo7" value="0" min="0" max="10"></meter>
+			<meter class="demo7" value="4" min="0" max="10"></meter>
+			<meter class="demo7" value="5" min="0" max="10"></meter>
+			<meter class="demo7" value="10" min="0" max="10"></meter>
+		</p>
+		<div id="demo7-code">
+			<pre><code>&lt;meter class="demo7" value="0" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo7" value="4" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo7" value="5" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo7" value="10" min="0" max="10"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo7').dialify({
+    'dialFaceColor': 'rgb(125, 172, 191)',
+    'dialOutlineColor': 'rgb(59, 86, 97)',
+    'scaleRangeColor': 'rgb(145, 195, 217)',
+    'pointerColor': 'rgb(255, 255, 255)',
+    'spindleColor': 'rgb(255, 255, 255)',
+    'spindleOutlineColor': 'rgb(59, 86, 97)'
+});</code></pre>
+		</div>
 
 		<h2>Render Using Custom Image</h2>
-		<meter class="demo8" value="0" min="0" max="10"></meter>
-		<meter class="demo8" value="5" min="0" max="10"></meter>
-		<meter class="demo8" value="10" min="0" max="10"></meter>
+		<p>
+			<meter class="demo8" value="0" min="0" max="10"></meter>
+			<meter class="demo8" value="5" min="0" max="10"></meter>
+			<meter class="demo8" value="7" min="0" max="10"></meter>
+			<meter class="demo8" value="10" min="0" max="10"></meter>
+		</p>
+		<div id="demo8-code">
+			<pre><code>&lt;meter class="demo8" value="0" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo8" value="5" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo8" value="7" min="0" max="10"&gt;&lt;/meter&gt;
+&lt;meter class="demo8" value="10" min="0" max="10"&gt;&lt;/meter&gt;</code></pre>
+			<pre><code>$('meter.demo8').dialify({ 
+    'image': 'meter.png',
+    'width': 120,
+    'height': 90,
+    'pointerRange': { 
+        'min': 0 - (Math.PI * 0.609), 
+        'max': 0 - (Math.PI * 0.382) 
+    },
+    'pointerRotationPoint': { 'y': 130 }
+});</code></pre>
+			<p><img src="meter.png" alt="meter.png" width="240" height="211" /></p>
+		</div>
+		
 	</section>
 	
 	<footer>		
