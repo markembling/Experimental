@@ -17,6 +17,8 @@ This is the same application as above, but converted to use the [NoRM][6] driver
 Experiments with HTML5 canvas.
 
  - Circles - This is my [Canvas Circles][7] experiment, which I have also [written about][8].
+ - 3DTransforms - This is my [Flip Flip][9] experiment featuring dancing canvas elements courtesy of CSS 3D tranforms. Safari (>=5) only, although Chrome works okay too.
+ - DialMeters - This has evolved into my [soon-to-be-released Dialify jQuery plugin][10], which I will shortly be moving into its own dedicated repository.
 
 
 [1]: http://www.mongodb.org/
@@ -27,3 +29,5 @@ Experiments with HTML5 canvas.
 [6]: http://normproject.org/
 [7]: http://experiments.markembling.info/canvas-circles/
 [8]: http://markembling.info/view/canvas-circles
+[9]: http://experiments.markembling.info/transforms/
+[10]: http://experiments.markembling.info/dialify/
