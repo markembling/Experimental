@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+	<script src="behaviour.js"></script>
+	
+	<style type="text/css">
+	#sample {
+		height: 50px;
+		width: 70px;
+	}
+	</style>
+</head>
+<body>
+	<video id="vid" controls loop>
+	    <source src="video.webm" type="video/webm">
+	    <!-- <source src=video.ogg type=video/ogg>
+	    <source src=video.mp4 type=video/mp4> -->
+	</video>
+	
+	<div id="stats">
+	<p>R: <meter id="r" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+	<p>G: <meter id="g" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+	<p>B: <meter id="b" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+	<p>T: <meter id="brightness" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+	<p>P: <meter id="perceptual" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+	<div id="sample"></div>
+	</div>
+</body>
+</html>
