@@ -1,4 +1,11 @@
 $(function(){
+	var rData = [];
+	var gData = [];
+	var bData = [];
+	var tData = [];
+	var perceptualData = [];
+	
+	
 	$('#vid').bind('play', function(){
         vidWidth = this.clientWidth;
         vidHeight = this.clientHeight;
@@ -31,8 +38,8 @@ $(function(){
 		var perceptual = Math.round(brightnessFromRgbUsingYuv(r, g, b));
 		
 		$('#r').attr('value', r).text(r);
-		$('#g').attr('value', g).text();
-		$('#b').attr('value', b).text();
+		$('#g').attr('value', g).text(g);
+		$('#b').attr('value', b).text(b);
 		$('#brightness').attr('value', overall).text(overall);
 		$('#perceptual').attr('value', perceptual).text(perceptual);
 		
@@ -43,6 +50,29 @@ $(function(){
 		$('#perceptual').parent().find('.sample').css('background-color', 'rgb(' + perceptual + "," + perceptual + "," + perceptual + ")");
 				
 		$('#sample').css('background-color', 'rgb(' + r + "," + g + "," + b + ")");
+		
+		// Graph
+		var time = new Date().getTime();
+		rData.push([time, r]);
+		gData.push([time, g]);
+		bData.push([time, b]);
+		tData.push([time, overall]);
+		perceptualData.push([time, perceptual]);
+		
+		$.plot(
+			$("#graph"), 
+			[
+				{ data: rData, color: 'rgb(255, 0, 0)' }, 
+				{ data: gData, color: 'rgb(0, 164, 0)' }, 
+				{ data: bData, color: 'rgb(0, 10, 255)' }, 
+				{ data: tData, color: 'rgb(100, 100, 100)' }, 
+				{ data: perceptualData, color: 'rgb(180, 180, 180)' }
+			], 
+			{ 
+				xaxis: { mode: "time" },
+				yaxis: { max: 255 }
+			}
+		);
 	}
 	
 	function getBrightnessFromVideoArea(vid, x, y, w, h, bufferContext) {
@@ -65,8 +95,6 @@ $(function(){
 	function averageColourValuesFromPixelData(data) {
 		var result = { r: 0, g: 0, b: 0 };
 		var rSummed = gSummed = bSummed = pixelCount = 0;
-		
-		console.log(gSummed);
 		
 		// Loop through the pixels
 	    for(var i = 0; i < data.length; i+=4) {

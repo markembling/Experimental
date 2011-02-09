@@ -3,6 +3,7 @@
 <head>
 	<title>Video</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+	<script src="flot/jquery.flot.min.js"></script>
 	<script src="behaviour.js"></script>
 	
 	<style type="text/css">
@@ -18,6 +19,8 @@
 	    <!-- <source src=video.ogg type=video/ogg>
 	    <source src=video.mp4 type=video/mp4> -->
 	</video>
+	
+	<div id="graph" style="width:600px;height:300px; float: right"></div>
 	
 	<div id="stats">
 	<p>R: <meter id="r" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
