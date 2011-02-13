@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>Video</title>
+	
+	<link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8">
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 	<script src="flot/jquery.flot.min.js"></script>
 	<script src="behaviour.js"></script>
@@ -13,22 +16,29 @@
 	}
 	</style>
 </head>
-<body>
-	<video id="vid" controls loop>
-	    <source src="video/sample.webm" type="video/webm">
-	    <source src="video/sample.ogg" type="video/ogg">
-	    <source src="video/sample.mp4" type="video/mp4">
-	</video>
+<body>	
+	<div id="container">
+		<header>
+			<h1>Canvas/Video</h1>
+		</header>
 	
-	<div id="graph" style="width:600px;height:300px; float: right"></div>
+		<video id="vid" controls loop>
+		    <source src="video/sample.webm" type="video/webm">
+		    <source src="video/sample.ogg" type="video/ogg">
+		    <source src="video/sample.mp4" type="video/mp4">
+		</video>
 	
-	<div id="stats">
-	<p>R: <meter id="r" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-	<p>G: <meter id="g" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-	<p>B: <meter id="b" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-	<p>T: <meter id="brightness" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-	<p>P: <meter id="perceptual" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-	<div id="sample"></div>
+		<div id="graph" style="width:600px;height:300px; float: right"></div>
+	
+		<div id="stats">
+		<p>R: <meter id="r" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+		<p>G: <meter id="g" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+		<p>B: <meter id="b" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+		<p>T: <meter id="brightness" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+		<p>P: <meter id="perceptual" min="0" max="255" value="0">...</meter> <span class="sample">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+		<div id="sample"></div>
+		</div>
+	
 	</div>
 </body>
 </html>

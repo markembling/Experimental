@@ -1,0 +1,28 @@
+@import url(font/stylesheet.css);
+
+body {
+	background-color: #C0E5F5;
+	margin: 0;
+	padding: 0;
+	background-image: url(stars.png);
+	background-repeat: no-repeat;
+	background-position: -40px left
+}
+
+#container {
+	width: 800px;
+	margin-left: 220px;
+}
+
+header {
+	display: block;
+}
+header h1 {
+	font-family: 'AirstreamRegular', Arial, sans-serif;
+	font-weight: normal;
+	font-size: 4em;
+	text-shadow: rgba(255,255,255,0.8) -1px -1px 3px;
+	color: #AF1A3D;
+	margin: 60px 0 0 0;
+	padding: 0;
+}
