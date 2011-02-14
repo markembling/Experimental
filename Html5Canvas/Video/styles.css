@@ -6,6 +6,7 @@ body {
 	padding: 0;
 	background-image: url(clouds.png);
 	background-repeat: repeat-x;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 #container {
@@ -32,9 +33,10 @@ header h1 {
 
 #tv {
 	display: block;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	right: 0;
+	z-index: 99;
 }
 
 video {
@@ -48,4 +50,23 @@ video {
 	-moz-box-shadow: 0px 0px 8px #FFF;
 	-webkit-box-shadow: 0px 0px 8px #FFF;
 	box-shadow: 0px 0px 8px #FFF;
+}
+
+footer {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(53, 131, 173, 0.4);
+}
+footer p {
+	margin: 0;
+	padding: 8px 0 8px 220px;
+	font-size: 0.8em;
+	color: #DFECF2;
+	text-shadow: rgba(0,0,0,0.3) 1px 1px 0px;
+}
+footer a {
+	color: #FFF;
 }
