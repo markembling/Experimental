@@ -4,14 +4,17 @@ body {
 	background-color: #C0E5F5;
 	margin: 0;
 	padding: 0;
-	background-image: url(stars.png);
-	background-repeat: no-repeat;
-	background-position: -40px left
+	background-image: url(clouds.png);
+	background-repeat: repeat-x;
 }
 
 #container {
 	width: 800px;
-	margin-left: 220px;
+	padding-left: 220px;
+	padding-top: 10px;
+	background-image: url(stars.png);
+	background-repeat: no-repeat;
+	background-position: -40px left;
 }
 
 header {
@@ -21,8 +24,15 @@ header h1 {
 	font-family: 'AirstreamRegular', Arial, sans-serif;
 	font-weight: normal;
 	font-size: 4em;
-	text-shadow: rgba(255,255,255,0.8) -1px -1px 3px;
-	color: #AF1A3D;
-	margin: 60px 0 0 0;
+	text-shadow: rgba(255,255,255,0.8) -1px -1px 4px;
+	color: #950438;
+	margin: 50px 0 0 0;
 	padding: 0;
+}
+
+#tv {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
