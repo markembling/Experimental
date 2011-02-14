@@ -70,7 +70,7 @@ $(function(){
 			], 
 			{ 
 				xaxis: { mode: "time" },
-				yaxis: { max: 255 }
+				yaxis: { min: 0, max: 255 }
 			}
 		);
 	}
