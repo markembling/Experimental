@@ -6,7 +6,7 @@ body {
 	padding: 0;
 	background-image: url(clouds.png);
 	background-repeat: repeat-x;
-	font-family: Helvetica Neue, Verdana, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Verdana, Arial, sans-serif;
 }
 
 #container {
@@ -63,10 +63,14 @@ footer {
 footer p {
 	margin: 0;
 	padding: 8px 0 8px 220px;
-	font-size: 0.8em;
+	font-size: 0.9em;
+	font-weight: 300;
 	color: #DFECF2;
 	text-shadow: rgba(0,0,0,0.3) 1px 1px 0px;
 }
 footer a {
 	color: #FFF;
+}
+footer .spacer {
+	margin: 0 0.4em;
 }
