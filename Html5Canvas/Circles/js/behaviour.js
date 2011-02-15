@@ -106,8 +106,10 @@ $(function() {
 		} else {
 			musicFile = choice.mp3;
 		}
-
+		
+		audio.get(0).pause();
 		audio.attr('src', musicFile);
+		audio.get(0).load();
 		audio.get(0).play();
 		
 		audioPlaying = true;

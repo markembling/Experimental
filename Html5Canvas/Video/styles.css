@@ -1,0 +1,72 @@
+@import url(font/stylesheet.css);
+
+body {
+	background-color: #C0E5F5;
+	margin: 0;
+	padding: 0;
+	background-image: url(clouds.png);
+	background-repeat: repeat-x;
+	font-family: Helvetica Neue, Verdana, Arial, sans-serif;
+}
+
+#container {
+	width: 800px;
+	padding-left: 220px;
+	padding-top: 10px;
+	background-image: url(stars.png);
+	background-repeat: no-repeat;
+	background-position: -40px left;
+}
+
+header {
+	display: block;
+}
+header h1 {
+	font-family: 'AirstreamRegular', Arial, sans-serif;
+	font-weight: normal;
+	font-size: 4em;
+	text-shadow: rgba(255,255,255,0.8) -1px -1px 4px;
+	color: #950438;
+	margin: 50px 0 0 0;
+	padding: 0;
+}
+
+#tv {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 99;
+}
+
+video {
+	display: block;
+	border: 10px solid rgb(53, 131, 173);
+	
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	
+	-moz-box-shadow: 0px 0px 8px #FFF;
+	-webkit-box-shadow: 0px 0px 8px #FFF;
+	box-shadow: 0px 0px 8px #FFF;
+}
+
+footer {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(53, 131, 173, 0.4);
+}
+footer p {
+	margin: 0;
+	padding: 8px 0 8px 220px;
+	font-size: 0.8em;
+	color: #DFECF2;
+	text-shadow: rgba(0,0,0,0.3) 1px 1px 0px;
+}
+footer a {
+	color: #FFF;
+}
