@@ -6,6 +6,15 @@ $(function(){
 	var perceptualData = [];
 	
 	
+	var dialOptions = { width: 60, height: 60 };
+	
+	// Dialify
+	$('meter').dialify(dialOptions);
+	
+	
+	
+	
+	
 	$('#vid').bind('play', function(){
         vidWidth = this.clientWidth;
         vidHeight = this.clientHeight;
@@ -43,12 +52,15 @@ $(function(){
 		$('#brightness').attr('value', overall).text(overall);
 		$('#perceptual').attr('value', perceptual).text(perceptual);
 		
-		$('#r').parent().find('.sample').css('background-color', 'rgb(' + r + ",0,0)");
-		$('#g').parent().find('.sample').css('background-color', 'rgb(0,' + g + ",0)");
-		$('#b').parent().find('.sample').css('background-color', 'rgb(0,0,' + b + ")");
-		$('#brightness').parent().find('.sample').css('background-color', 'rgb(' + overall + "," + overall + "," + overall + ")");
-		$('#perceptual').parent().find('.sample').css('background-color', 'rgb(' + perceptual + "," + perceptual + "," + perceptual + ")");
-				
+		$('canvas.dialify-meter').remove();
+		$('meter').dialify(dialOptions);
+		
+		$('#r-sample').css('background-color', 'rgb(' + r + ",0,0)");
+		$('#g-sample').css('background-color', 'rgb(0,' + g + ",0)");
+		$('#b-sample').css('background-color', 'rgb(0,0,' + b + ")");
+		$('#brightness-sample').css('background-color', 'rgb(' + overall + "," + overall + "," + overall + ")");
+		$('#perceptual-sample').css('background-color', 'rgb(' + perceptual + "," + perceptual + "," + perceptual + ")");
+		
 		$('#sample').css('background-color', 'rgb(' + r + "," + g + "," + b + ")");
 		
 		// Graph

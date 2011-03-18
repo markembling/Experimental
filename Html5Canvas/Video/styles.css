@@ -6,11 +6,10 @@ body {
 	padding: 0;
 	background-image: url(clouds.png);
 	background-repeat: repeat-x;
-	font-family: Helvetica Neue, Verdana, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Verdana, Arial, sans-serif;
 }
 
 #container {
-	width: 800px;
 	padding-left: 220px;
 	padding-top: 10px;
 	background-image: url(stars.png);
@@ -29,6 +28,19 @@ header h1 {
 	color: #950438;
 	margin: 50px 0 0 0;
 	padding: 0;
+}
+
+#stats {
+	float: right;
+}
+
+#sample {
+	margin: 0;
+	padding: 0;
+	height: 60px;
+	width: 60px;
+	border: 1px solid #000;
+	border-radius: 30px;
 }
 
 #tv {
@@ -63,10 +75,14 @@ footer {
 footer p {
 	margin: 0;
 	padding: 8px 0 8px 220px;
-	font-size: 0.8em;
+	font-size: 0.9em;
+	font-weight: 300;
 	color: #DFECF2;
 	text-shadow: rgba(0,0,0,0.3) 1px 1px 0px;
 }
 footer a {
 	color: #FFF;
+}
+footer .spacer {
+	margin: 0 0.4em;
 }
