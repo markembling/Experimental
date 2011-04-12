@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ACA0C3F7-E757-4CD7-9972-0A6B2B6FD330}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GridFsMvc</RootNamespace>
+    <AssemblyName>GridFsMvc</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MongoDB.Bson, Version=1.0.0.4098, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\mongodb\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\lib\mongodb\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\uploadify\cancel.png" />
+    <Content Include="Content\uploadify\expressInstall.swf" />
+    <Content Include="Content\uploadify\jquery-1.4.2.min.js" />
+    <Content Include="Content\uploadify\jquery.uploadify.v2.1.4.js" />
+    <Content Include="Content\uploadify\jquery.uploadify.v2.1.4.min.js" />
+    <Content Include="Content\uploadify\swfobject.js" />
+    <Content Include="Content\uploadify\uploadify.allglyphs.swf" />
+    <Content Include="Content\uploadify\uploadify.css" />
+    <Content Include="Content\uploadify\uploadify.swf" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Home\Files.aspx" />
+    <Content Include="Views\Home\Upload.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\uploadify\check.php" />
+    <None Include="Content\uploadify\com\adobe\air\logging\FileTarget.as" />
+    <None Include="Content\uploadify\com\adobe\crypto\HMAC.as" />
+    <None Include="Content\uploadify\com\adobe\crypto\MD5.as" />
+    <None Include="Content\uploadify\com\adobe\crypto\MD5Stream.as" />
+    <None Include="Content\uploadify\com\adobe\crypto\SHA1.as" />
+    <None Include="Content\uploadify\com\adobe\crypto\SHA224.as" />
+    <None Include="Content\uploadify\com\adobe\crypto\SHA256.as" />
+    <None Include="Content\uploadify\com\adobe\crypto\WSSEUsernameToken.as" />
+    <None Include="Content\uploadify\com\adobe\errors\IllegalStateError.as" />
+    <None Include="Content\uploadify\com\adobe\fileformats\vcard\Address.as" />
+    <None Include="Content\uploadify\com\adobe\fileformats\vcard\Email.as" />
+    <None Include="Content\uploadify\com\adobe\fileformats\vcard\Phone.as" />
+    <None Include="Content\uploadify\com\adobe\fileformats\vcard\VCard.as" />
+    <None Include="Content\uploadify\com\adobe\fileformats\vcard\VCardParser.as" />
+    <None Include="Content\uploadify\com\adobe\images\BitString.as" />
+    <None Include="Content\uploadify\com\adobe\images\JPGEncoder.as" />
+    <None Include="Content\uploadify\com\adobe\images\PNGEncoder.as" />
+    <None Include="Content\uploadify\com\adobe\net\DynamicURLLoader.as" />
+    <None Include="Content\uploadify\com\adobe\net\IURIResolver.as" />
+    <None Include="Content\uploadify\com\adobe\net\MimeTypeMap.as" />
+    <None Include="Content\uploadify\com\adobe\net\proxies\RFC2817Socket.as" />
+    <None Include="Content\uploadify\com\adobe\net\URI.as" />
+    <None Include="Content\uploadify\com\adobe\net\URIEncodingBitmap.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\Database.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\Definition.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\Dict.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\DictionaryServer.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\ConnectedEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\DatabaseEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\DefinitionEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\DefinitionHeaderEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\DictionaryServerEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\DisconnectedEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\ErrorEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\MatchEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\MatchStrategiesEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\events\NoMatchEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\MatchStrategy.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\Response.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\util\CompleteResponseEvent.as" />
+    <None Include="Content\uploadify\com\adobe\protocols\dict\util\SocketHelper.as" />
+    <None Include="Content\uploadify\com\adobe\serialization\json\JSON.as" />
+    <None Include="Content\uploadify\com\adobe\serialization\json\JSONDecoder.as" />
+    <None Include="Content\uploadify\com\adobe\serialization\json\JSONEncoder.as" />
+    <None Include="Content\uploadify\com\adobe\serialization\json\JSONParseError.as" />
+    <None Include="Content\uploadify\com\adobe\serialization\json\JSONToken.as" />
+    <None Include="Content\uploadify\com\adobe\serialization\json\JSONTokenizer.as" />
+    <None Include="Content\uploadify\com\adobe\serialization\json\JSONTokenType.as" />
+    <None Include="Content\uploadify\com\adobe\utils\ArrayUtil.as" />
+    <None Include="Content\uploadify\com\adobe\utils\DateUtil.as" />
+    <None Include="Content\uploadify\com\adobe\utils\DictionaryUtil.as" />
+    <None Include="Content\uploadify\com\adobe\utils\IntUtil.as" />
+    <None Include="Content\uploadify\com\adobe\utils\NumberFormatter.as" />
+    <None Include="Content\uploadify\com\adobe\utils\StringUtil.as" />
+    <None Include="Content\uploadify\com\adobe\utils\XMLUtil.as" />
+    <None Include="Content\uploadify\com\adobe\webapis\events\ServiceEvent.as" />
+    <None Include="Content\uploadify\com\adobe\webapis\ServiceBase.as" />
+    <None Include="Content\uploadify\com\adobe\webapis\URLLoaderBase.as" />
+    <None Include="Content\uploadify\uploadify.fla" />
+    <None Include="Content\uploadify\uploadify.php" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54040</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

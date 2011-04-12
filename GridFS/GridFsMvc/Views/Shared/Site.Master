@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>GridFS Test</title>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+
+<body>
+    <div class="page">
+
+        <div id="header">
+            <div id="title">
+                <h1>GridFS Test</h1>
+            </div>
+              
+            <div id="logindisplay"><br /></div> 
+            
+            <div id="menucontainer">
+            
+                <ul id="menu">
+                    <li><%: Html.ActionLink("Files", "Files", "Home")%></li>
+                    <li><%: Html.ActionLink("Upload", "Upload", "Home")%></li>
+                </ul>
+            
+            </div>
+        </div>
+
+        <div id="main">
+			<% if (TempData.ContainsKey("notice")) { %>
+				<p class="notice"><%= TempData["notice"]%></p>
+			<% } %>
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+            <div id="footer">
+            </div>
+        </p>
+    </div>
+</body>
+</html>
