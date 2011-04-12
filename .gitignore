@@ -8,3 +8,4 @@ _ReSharper*
 *.csproj.user
 *.javac
 *.pyc
+Thumbs.db
